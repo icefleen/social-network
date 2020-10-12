@@ -1,5 +1,11 @@
-import avatar from '../images/avatar.jpg';
-import emmaAvatar from '../images/emma-avatar.jpg';
+import avatar from './../images/avatar.jpg';
+
+import emmaAvatar from './../images/emma-avatar.jpg';
+import paulAvatar from "./../images/paul-avatar.jpg";
+import elenaAvatar from "./../images/elena-avatar.jpg";
+import katrinAvatar from "./../images/katrin-avatar.jpg";
+import steveAvatar from "./../images/steve-avatar.jpg";
+import alexAvatar from "./../images/alex-avatar.jpg";
 
 let state = {
   profile: {
@@ -16,6 +22,32 @@ let state = {
         fullname:"Daniil Yandybaev",
         datetime:"56 minutes ago"
       },
+    ],
+    friends: [
+      {
+        avatar: emmaAvatar,
+        firstName: "Emma",
+      },
+      {
+        avatar: paulAvatar,
+        firstName: "Paul",
+      },
+      {
+        avatar: elenaAvatar,
+        firstName: "Elena",
+      },
+      {
+        avatar: katrinAvatar,
+        firstName: "Katrin",
+      },
+      {
+        avatar: steveAvatar,
+        firstName: "Steve",
+      },
+      {
+        avatar: alexAvatar,
+        firstName: "Alex",
+      }
     ]
   },
 
@@ -47,7 +79,7 @@ let state = {
         lastMessage: "Hello :) My name is Emma and i am 18 years old"
       }
     ],
-    
+
     messages: [
       {
         from: "me",

@@ -1,6 +1,6 @@
 import React from 'react';
-import MessengerDialog from './MessengerDialog';
-import MessengerMessage from './MessengerMessage';
+import MessengerDialog from './MessengerDialog/MessengerDialog';
+import MessengerMessage from './MessengerMessage/MessengerMessage';
 import { NavLink } from 'react-router-dom';
 
 const Messenger = (props) => {
