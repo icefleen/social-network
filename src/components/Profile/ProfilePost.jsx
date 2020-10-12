@@ -8,7 +8,7 @@ const ProfilePost = (props) => {
           <img src={ props.avatar } alt="avatar"/>
         </div>
         <div className="post__info">
-          <div className="post__owner">Daniil Yandybaev</div>
+          <div className="post__owner">{ props.fullname }</div>
           <div className="post__datetime">{ props.datetime }</div>
         </div>
       </div>

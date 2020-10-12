@@ -9,7 +9,7 @@ const MessengerDialog = (props) => {
       <div className="dialog__info">
         <div className="dialog__fullname">Emma Watson</div>
         <div className="dialog__last-message">
-          { props.message }
+          { props.lastMessage }
         </div>
       </div>
     </div>
