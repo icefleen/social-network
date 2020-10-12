@@ -13,13 +13,13 @@ let state = {
       {
         text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim est eos nisi, totam esse reiciendis officiis, quidem similique debitis perspiciatis eaque sint harum atque amet maiores asperiores! Laudantium placeat doloremque eius sit quo earum cupiditate tempora minus. Quis repellat voluptas suscipit nisi, vitae aliquam saepe! Asperiores quasi error esse corrupti eligendi aspernatur facilis doloremque repudiandae unde libero atque, velit nulla cupiditate, facere itaque quam deserunt odit ut. Id est quas voluptas nisi, inventore voluptatem libero. Provident laboriosam, aspernatur eligendi amet, nesciunt placeat quod ipsam facere inventore incidunt praesentium vel cumque autem harum alias consequuntur porro facilis nihil? Porro, velit saepe.",
         avatar: avatar,
-        fullname:"Daniil Yandybaev",
+        fullName:"Daniil Yandybaev",
         datetime:"49 minutes ago"
       },
       {
         text: "Hello, World!",
         avatar: avatar,
-        fullname:"Daniil Yandybaev",
+        fullName:"Daniil Yandybaev",
         datetime:"56 minutes ago"
       },
     ],
@@ -84,13 +84,13 @@ let state = {
       {
         from: "me",
         avatar: avatar,
-        fullname: "Daniil Yandybaev",
+        fullName: "Daniil Yandybaev",
         text: "Hi! How old are you?"
       },
       {
         from: "other",
         avatar: emmaAvatar,
-        fullname: "Emma Watson",
+        fullName: "Emma Watson",
         text: "Hello :) My name is Emma and i am 18 years old. How are you?"
       }
     ]

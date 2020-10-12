@@ -7,8 +7,8 @@ const MessengerMessage = (props) => {
         <img src={ props.avatar } alt="avatar"/>
       </div>
       <div className="message__info">
-        <div className="message__fullname">
-          { props.fullname }
+        <div className="message__fullName">
+          { props.fullName }
         </div>
         <div className="message__text">
           { props.text }

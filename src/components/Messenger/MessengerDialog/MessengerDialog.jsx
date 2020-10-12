@@ -7,7 +7,7 @@ const MessengerDialog = (props) => {
         <img src={ props.avatar } alt="avatar"/>
       </div>
       <div className="dialog__info">
-        <div className="dialog__fullname">Emma Watson</div>
+        <div className="dialog__fullName">Emma Watson</div>
         <div className="dialog__last-message">
           { props.lastMessage }
         </div>

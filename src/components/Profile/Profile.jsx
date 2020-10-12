@@ -22,7 +22,7 @@ const Profile = (props) => {
             <ProfilePost
               text={ post.text }
               avatar={ post.avatar }
-              fullname={ post.fullname }
+              fullName={ post.fullName }
               datetime={ post.datetime }
             /> ) }
           </div>

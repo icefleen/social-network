@@ -21,7 +21,7 @@ const Messenger = (props) => {
           <MessengerMessage
             from={ message.from }
             avatar={ message.avatar }
-            fullname={ message.fullname }
+            fullName={ message.fullName }
             text={ message.text }
           />
         ) }

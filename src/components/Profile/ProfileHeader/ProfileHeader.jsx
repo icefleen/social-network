@@ -10,7 +10,7 @@ const ProfileHeader = () => {
           <div className="profile__avatar">
             <img src={ avatar } alt="avatar"/>
           </div>
-          <h3 className="profile__fullname">
+          <h3 className="profile__fullName">
             Daniil Yandybaev
           </h3>
           <p className="profile__status">
