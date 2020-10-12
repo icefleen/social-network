@@ -18,7 +18,7 @@ const Profile = (props) => {
         <div className="profile__right">
           <ProfileNewPost />
           <div className="posts">
-            { props.profilePosts.map((post) => 
+            { props.state.profilePosts.map((post) => 
             <ProfilePost
               text={ post.text }
               avatar={ post.avatar }

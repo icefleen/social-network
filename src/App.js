@@ -20,14 +20,13 @@ function App(props) {
           <Navbar />
             <Route path="/profile" render={ () => 
               <Profile
-                profilePosts={ props.profilePosts }
+                state={ props.state.profile }
               /> }
             />
 
             <Route path="/messenger" render={ () =>
               <Messenger
-                dialogs={ props.dialogs }
-                messages={ props.messages }
+                state={ props.state.messenger }
               /> }
             />
 
