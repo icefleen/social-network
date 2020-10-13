@@ -2,7 +2,7 @@ $white: #ffffff;
 $light: #eeeeee;
 $lighter: #f8f8f8;
 $gray: #868686;
-$dark: #1f1f1f;
+$dark: #333333;
 
 $primary-light: #f0f5ff;
 $primary: #3d72db;
@@ -29,6 +29,11 @@ body {
 
 a {
   text-decoration: none;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
 }
 
 ul {
@@ -190,9 +195,10 @@ h1, h2, h3, h4, h5, h6, p {
 
 .new-post {
   display: flex;
+  padding: 15px 20px;
 
   &__input {
-    padding: 7px;
+    padding: 10px 0;
     outline: none;
     border: none;
     display: block;
@@ -358,10 +364,16 @@ h1, h2, h3, h4, h5, h6, p {
   background-color: $white;
   @extend %shadow;
   border-radius: 3px;
-  padding: 20px;
-
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  justify-content: flex-end;
+  
+  &__content {
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }
 
 .message {
@@ -399,5 +411,30 @@ h1, h2, h3, h4, h5, h6, p {
 
   &[data-from="me"]  &__info {
     background-color: $lighter;
+  }
+}
+
+.new-message {
+  display: flex;
+  padding: 15px;
+
+  &__input {
+    padding: 10px;
+    outline: none;
+    border: none;
+    display: block;
+    width: 100%;
+    border-radius: 3px 0 0 3px;
+    background-color: $lighter;
+  }
+
+  &__submit {
+    border: none;
+    border-radius: 3px;
+    background-color: $primary;
+    color: $white;
+    font-weight: bold;
+    padding: 0 20px;
+    border-radius: 0 3px 3px 0;
   }
 }
