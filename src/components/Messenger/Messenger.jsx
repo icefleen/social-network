@@ -5,10 +5,14 @@ import { NavLink } from 'react-router-dom';
 
 const Messenger = (props) => {
   const onSendClicked = () => {
-    alert(newMessageInput.current.value);
+    props.addMessage();
   }
 
   const newMessageInput = React.createRef();
+
+  const onNewMessageInputHandler = () => {
+    props.updateNewMessageText(newMessageInput.current.value);
+  }
 
   return (
     <section className="main__messenger messenger">
@@ -34,8 +38,20 @@ const Messenger = (props) => {
           ) }
         </div>
         <div className="messages__new-message new-message">
-          <input ref={ newMessageInput }  className="new-message__input" type="text" name="message text" placeholder="Write a message..."/>
-          <button type="button" className="new-message__submit" onClick={ onSendClicked }>Send</button>
+          <input
+            ref={ newMessageInput }
+            value={ props.state.newMessageText }
+            onChange={ onNewMessageInputHandler }
+            className="new-message__input"
+            type="text" name="message text"
+            placeholder="Write a message..."
+          />
+
+          <button
+           type="button"
+            className="new-message__submit"
+            onClick={ onSendClicked }
+          >Send</button>
         </div>
       </div>
     </section>

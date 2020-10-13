@@ -16,9 +16,13 @@ const Profile = (props) => {
           <ProfileFriends friends={ props.state.friends } />
         </div>
         <div className="profile__right">
-          <ProfileNewPost />
+          <ProfileNewPost
+            addPost={ props.addPost }
+            newPostText={ props.state.newPostText }
+            updateNewPostText={ props.updateNewPostText }
+          />
           <div className="posts">
-            { props.state.profilePosts.map((post) => 
+            { [...props.state.profilePosts].reverse().map((post) => 
             <ProfilePost
               text={ post.text }
               avatar={ post.avatar }

@@ -21,12 +21,16 @@ function App(props) {
             <Route path="/profile" render={ () => 
               <Profile
                 state={ props.state.profile }
+                addPost={ props.addPost }
+                updateNewPostText={ props.updateNewPostText }
               /> }
             />
 
             <Route path="/messenger" render={ () =>
               <Messenger
                 state={ props.state.messenger }
+                addMessage={ props.addMessage }
+                updateNewMessageText={ props.updateNewMessageText }
               /> }
             />
 
