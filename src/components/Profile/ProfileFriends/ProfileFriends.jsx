@@ -8,12 +8,9 @@ const ProfileFriends = (props) => {
         Friends <span className="friends__count">46</span>
       </h3>
       <div className="friends__list">
-        { props.friends.map( friend => 
-          <ProfileFriend
-            avatar={ friend.avatar }
-            firstName={ friend.firstName }
-          />
-        ) }
+        {props.friends.map((friend) => (
+          <ProfileFriend avatar={friend.avatar} firstName={friend.firstName} />
+        ))}
       </div>
     </div>
   );

@@ -1,15 +1,14 @@
-import React from 'react';
-import './App.scss';
+import React from "react";
+import "./App.scss";
 
-import Header from './components/Header';
-import Navbar from './components/Navbar'
-import Profile from './components/Profile/Profile';
-import Messenger from './components/Messenger/Messenger';
-import { BrowserRouter, Route } from 'react-router-dom';
-import News from './components/News/News';
-import Music from './components/Music/Music';
-import Settings from './components/Settings/Settings';
-
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import Profile from "./components/Profile/Profile";
+import Messenger from "./components/Messenger/Messenger";
+import { BrowserRouter, Route } from "react-router-dom";
+import News from "./components/News/News";
+import Music from "./components/Music/Music";
+import Settings from "./components/Settings/Settings";
 
 function App(props) {
   return (
@@ -18,25 +17,26 @@ function App(props) {
       <main className="main">
         <div className="main__wrapper container">
           <Navbar />
-            <Route path="/profile" render={ () => 
-              <Profile
-                state={ props.state.profile }
-                addPost={ props.addPost }
-                updateNewPostText={ props.updateNewPostText }
-              /> }
-            />
+          <Route
+            path="/profile"
+            render={() => (
+              <Profile state={props.state.profile} dispatch={props.dispatch} />
+            )}
+          />
 
-            <Route path="/messenger" render={ () =>
+          <Route
+            path="/messenger"
+            render={() => (
               <Messenger
-                state={ props.state.messenger }
-                addMessage={ props.addMessage }
-                updateNewMessageText={ props.updateNewMessageText }
-              /> }
-            />
+                state={props.state.messenger}
+                dispatch={props.dispatch}
+              />
+            )}
+          />
 
-            <Route path="/news" render={ () => <News /> }/>
-            <Route path="/music" render={ () => <Music /> }/>
-            <Route path="/settings" render={ () => <Settings /> }/>
+          <Route path="/news" render={() => <News />} />
+          <Route path="/music" render={() => <Music />} />
+          <Route path="/settings" render={() => <Settings />} />
         </div>
       </main>
     </BrowserRouter>
