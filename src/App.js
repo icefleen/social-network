@@ -4,7 +4,7 @@ import "./App.scss";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Profile from "./components/Profile/Profile";
-import Messenger from "./components/Messenger/Messenger";
+import MessengerContainer from "./components/Messenger/MessengerContainer";
 import { BrowserRouter, Route } from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
@@ -20,16 +20,16 @@ function App(props) {
           <Route
             path="/profile"
             render={() => (
-              <Profile state={props.state.profile} dispatch={props.dispatch} />
+              <Profile store={props.store} state={props.state.profile} />
             )}
           />
 
           <Route
             path="/messenger"
             render={() => (
-              <Messenger
+              <MessengerContainer
+                store={props.store}
                 state={props.state.messenger}
-                dispatch={props.dispatch}
               />
             )}
           />

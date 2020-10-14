@@ -3,22 +3,15 @@ import MessengerDialog from "./MessengerDialog/MessengerDialog";
 import MessengerMessage from "./MessengerMessage/MessengerMessage";
 import { NavLink } from "react-router-dom";
 
-import {
-  addMessageActionCreator,
-  updateNewMessageTextActionCreator,
-} from "./../../redux/messengerReducer";
-
 const Messenger = (props) => {
   const onSendClicked = () => {
-    props.dispatch(addMessageActionCreator());
+    props.addMessage();
   };
 
   const newMessageInput = React.createRef();
 
   const onNewMessageInputHandler = () => {
-    props.dispatch(
-      updateNewMessageTextActionCreator(newMessageInput.current.value)
-    );
+    props.updateNewMessageText(newMessageInput.current.value);
   };
 
   return (

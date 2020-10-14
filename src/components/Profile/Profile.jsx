@@ -3,8 +3,8 @@ import React from "react";
 import ProfileAbout from "./ProfileAbout/ProfileAbout";
 import ProfileHeader from "./ProfileHeader/ProfileHeader";
 import ProfileFriends from "./ProfileFriends/ProfileFriends";
-import ProfileNewPost from "./ProfileNewPost/ProfileNewPost";
 import ProfilePost from "./ProfilePost/ProfilePost";
+import ProfileNewPostContainer from "./ProfileNewPost/ProfileNewPostContainer";
 
 const Profile = (props) => {
   return (
@@ -16,10 +16,9 @@ const Profile = (props) => {
           <ProfileFriends friends={props.state.friends} />
         </div>
         <div className="profile__right">
-          <ProfileNewPost
-            addPost={props.addPost}
+          <ProfileNewPostContainer
+            store={props.store}
             newPostText={props.state.newPostText}
-            dispatch={props.dispatch}
           />
           <div className="posts">
             {[...props.state.profilePosts].reverse().map((post) => (

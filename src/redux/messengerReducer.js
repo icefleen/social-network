@@ -74,6 +74,7 @@ const dialogsReducer = (state = initialState, action) => {
         fullName: "Daniil Yandybaev",
         text: state.newMessageText,
       });
+
       state.newMessageText = "";
 
       return state;
