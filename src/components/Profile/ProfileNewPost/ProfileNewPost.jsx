@@ -3,7 +3,7 @@ import React from "react";
 import {
   addPostActionCreator,
   updateNewPostTextActionCreator,
-} from "./../../../redux/store";
+} from "./../../../redux/profileReducer";
 
 const ProfileNewPost = (props) => {
   const onSendClicked = () => {

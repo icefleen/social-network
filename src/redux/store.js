@@ -126,12 +126,3 @@ const store = {
 };
 
 export default store;
-
-export const addPostActionCreator = () => ({
-  type: "ADD POST",
-});
-
-export const updateNewPostTextActionCreator = (newText) => ({
-  type: "UPDATE NEW POST TEXT",
-  newText,
-});
