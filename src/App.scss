@@ -241,7 +241,7 @@ p {
   }
 
   &__info {
-    margin-left: 15px;
+    margin-left: 10px;
   }
 
   &__owner {
@@ -305,6 +305,7 @@ p {
   grid-template-columns: 2fr 4fr;
   column-gap: 20px;
   width: 100%;
+  align-items: flex-start;
 
   &__dialogs {
   }

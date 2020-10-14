@@ -64,27 +64,27 @@ const store = {
         {
           penPalId: 1,
           avatar: emmaAvatar,
-          lastMessage: "Hello :) My name is Emma and i am 18 years old",
+          lastMessage: "Hello :) My name is Emma and I am 18 years old",
         },
         {
           penPalId: 2,
           avatar: emmaAvatar,
-          lastMessage: "Hello :) My name is Emma and i am 18 years old",
+          lastMessage: "Hello :) My name is Emma and I am 18 years old",
         },
         {
           penPalId: 3,
           avatar: emmaAvatar,
-          lastMessage: "Hello :) My name is Emma and i am 18 years old",
+          lastMessage: "Hello :) My name is Emma and I am 18 years old",
         },
         {
           penPalId: 4,
           avatar: emmaAvatar,
-          lastMessage: "Hello :) My name is Emma and i am 18 years old",
+          lastMessage: "Hello :) My name is Emma and I am 18 years old",
         },
         {
           penPalId: 5,
           avatar: emmaAvatar,
-          lastMessage: "Hello :) My name is Emma and i am 18 years old",
+          lastMessage: "Hello :) My name is Emma and I am 18 years old",
         },
       ],
       messages: [

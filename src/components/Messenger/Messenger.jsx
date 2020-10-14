@@ -28,6 +28,7 @@ const Messenger = (props) => {
           <NavLink to={`/messenger/${dialog.penPalId}`}>
             <MessengerDialog
               avatar={dialog.avatar}
+              fullname={dialog.fullname}
               lastMessage={dialog.lastMessage}
             />
           </NavLink>
