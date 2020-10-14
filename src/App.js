@@ -19,18 +19,13 @@ function App(props) {
           <Navbar />
           <Route
             path="/profile"
-            render={() => (
-              <Profile store={props.store} state={props.state.profile} />
-            )}
+            render={() => <Profile profileState={props.state.profileState} />}
           />
 
           <Route
             path="/messenger"
             render={() => (
-              <MessengerContainer
-                store={props.store}
-                state={props.state.messenger}
-              />
+              <MessengerContainer />
             )}
           />
 

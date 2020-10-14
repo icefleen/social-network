@@ -13,15 +13,14 @@ const Profile = (props) => {
       <div className="profile__columns">
         <div className="profile__left">
           <ProfileAbout />
-          <ProfileFriends friends={props.state.friends} />
+          <ProfileFriends friends={props.profileState.friends} />
         </div>
         <div className="profile__right">
           <ProfileNewPostContainer
-            store={props.store}
-            newPostText={props.state.newPostText}
+            newPostText={props.profileState.newPostText}
           />
           <div className="posts">
-            {[...props.state.profilePosts].reverse().map((post) => (
+            {[...props.profileState.profilePosts].reverse().map((post) => (
               <ProfilePost
                 text={post.text}
                 avatar={post.avatar}

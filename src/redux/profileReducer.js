@@ -52,6 +52,8 @@ const initialState = {
       firstName: "Alex",
     },
   ],
+
+  newPostText: "",
 };
 
 const profileReducer = (state = initialState, action) => {

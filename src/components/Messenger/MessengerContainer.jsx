@@ -1,4 +1,3 @@
-import React from "react";
 import Messenger from "./Messenger";
 
 import {
@@ -6,22 +5,21 @@ import {
   updateNewMessageTextActionCreator,
 } from "../../redux/messengerReducer";
 
-const MessengerContainer = (props) => {
-  const addMessage = () => {
-    props.store.dispatch(addMessageActionCreator());
-  };
+import { connect } from "react-redux";
 
-  const updateNewMessageText = (newText) => {
-    props.store.dispatch(updateNewMessageTextActionCreator(newText));
-  };
+const mapStateToProps = (state) => ({
+  messengerState: state.messengerState,
+});
 
-  return (
-    <Messenger
-      state={props.state}
-      addMessage={addMessage}
-      updateNewMessageText={updateNewMessageText}
-    />
-  );
-};
+const mapDispatchToProps = (dispatch) => ({
+  addMessage: () => dispatch(addMessageActionCreator()),
+  updateNewMessageText: (newText) =>
+    dispatch(updateNewMessageTextActionCreator(newText)),
+});
+
+const MessengerContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Messenger);
 
 export default MessengerContainer;
