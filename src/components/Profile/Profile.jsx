@@ -22,6 +22,7 @@ const Profile = (props) => {
           <div className="posts">
             {[...props.profileState.profilePosts].reverse().map((post) => (
               <ProfilePost
+                key={post.id}
                 text={post.text}
                 avatar={post.avatar}
                 fullName={post.fullName}

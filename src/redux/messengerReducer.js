@@ -12,37 +12,37 @@ const UPDATE_NEW_MESSAGE_TEXT = "UPDATE NEW MESSAGE TEXT";
 const initialState = {
   dialogs: [
     {
-      penPalId: 1,
+      id: 1,
       fullname: "Emma Watson",
       avatar: emmaAvatar,
       lastMessage: "Hello :) My name is Emma and I am 18 years old",
     },
     {
-      penPalId: 2,
+      id: 2,
       fullname: "Alex Williams",
       avatar: alexAvatar,
       lastMessage: "Hello :) My name is Alex and I am 18 years old",
     },
     {
-      penPalId: 3,
+      id: 3,
       fullname: "Elena Cooper",
       avatar: elenaAvatar,
       lastMessage: "Hello :) My name is Elena and I am 18 years old",
     },
     {
-      penPalId: 4,
+      id: 4,
       fullname: "Paul Conor",
       avatar: paulAvatar,
       lastMessage: "Hello :) My name is Paul and I am 18 years old",
     },
     {
-      penPalId: 5,
+      id: 5,
       fullname: "Katrin Lee",
       avatar: katrinAvatar,
       lastMessage: "Hello :) My name is Katrin and I am 18 years old",
     },
     {
-      penPalId: 6,
+      id: 6,
       fullname: "Steve Clark",
       avatar: steveAvatar,
       lastMessage: "Hello :) My name is Steve and I am 18 years old",
@@ -50,12 +50,14 @@ const initialState = {
   ],
   messages: [
     {
+      id: 1,
       from: "me",
       avatar: avatar,
       fullName: "Daniil Yandybaev",
       text: "Hi! How are you?",
     },
     {
+      id: 2,
       from: "other",
       avatar: emmaAvatar,
       fullName: "Emma Watson",
@@ -68,22 +70,27 @@ const initialState = {
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MESSAGE: {
-      state.messages.push({
+      const stateCopy = { ...state };
+      stateCopy.messages = [...state.messages];
+
+      stateCopy.messages.push({
+        id: 7,
         from: "me",
         avatar: avatar,
         fullName: "Daniil Yandybaev",
-        text: state.newMessageText,
+        text: stateCopy.newMessageText,
       });
 
-      state.newMessageText = "";
+      stateCopy.newMessageText = "";
 
-      return state;
+      return stateCopy;
     }
 
     case UPDATE_NEW_MESSAGE_TEXT: {
-      state.newMessageText = action.newText;
+      const stateCopy = { ...state };
+      stateCopy.newMessageText = action.newText;
 
-      return state;
+      return stateCopy;
     }
 
     default:

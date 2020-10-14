@@ -9,7 +9,11 @@ const ProfileFriends = (props) => {
       </h3>
       <div className="friends__list">
         {props.friends.map((friend) => (
-          <ProfileFriend avatar={friend.avatar} firstName={friend.firstName} />
+          <ProfileFriend
+            key={friend.id}
+            avatar={friend.avatar}
+            firstName={friend.firstName}
+          />
         ))}
       </div>
     </div>

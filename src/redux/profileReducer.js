@@ -12,6 +12,7 @@ const UPDATE_NEW_POST_TEXT = "UPDATE NEW POST TEXT";
 const initialState = {
   profilePosts: [
     {
+      id: 1,
       text:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim est eos nisi, totam esse reiciendis officiis, quidem similique debitis perspiciatis eaque sint harum atque amet maiores asperiores! Laudantium placeat doloremque eius sit quo earum cupiditate tempora minus. Quis repellat voluptas suscipit nisi, vitae aliquam saepe! Asperiores quasi error esse corrupti eligendi aspernatur facilis doloremque repudiandae unde libero atque, velit nulla cupiditate, facere itaque quam deserunt odit ut. Id est quas voluptas nisi, inventore voluptatem libero. Provident laboriosam, aspernatur eligendi amet, nesciunt placeat quod ipsam facere inventore incidunt praesentium vel cumque autem harum alias consequuntur porro facilis nihil? Porro, velit saepe.",
       avatar: avatar,
@@ -19,6 +20,7 @@ const initialState = {
       datetime: "56 minutes ago",
     },
     {
+      id: 2,
       text: "Hello, World!",
       avatar: avatar,
       fullName: "Daniil Yandybaev",
@@ -28,26 +30,32 @@ const initialState = {
 
   friends: [
     {
+      id: 1,
       avatar: emmaAvatar,
       firstName: "Emma",
     },
     {
+      id: 2,
       avatar: paulAvatar,
       firstName: "Paul",
     },
     {
+      id: 3,
       avatar: elenaAvatar,
       firstName: "Elena",
     },
     {
+      id: 4,
       avatar: katrinAvatar,
       firstName: "Katrin",
     },
     {
+      id: 5,
       avatar: steveAvatar,
       firstName: "Steve",
     },
     {
+      id: 6,
       avatar: alexAvatar,
       firstName: "Alex",
     },
@@ -59,22 +67,28 @@ const initialState = {
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST: {
-      state.profilePosts.push({
-        text: state.newPostText,
+      const stateCopy = { ...state };
+      stateCopy.profilePosts = [...state.profilePosts];
+
+      stateCopy.profilePosts.push({
+        id: 3,
+        text: stateCopy.newPostText,
         avatar: avatar,
         fullName: "Daniil Yandybaev",
         datetime: "12 minutes ago",
       });
 
-      state.newPostText = "";
+      stateCopy.newPostText = "";
 
-      return state;
+      return stateCopy;
     }
 
     case UPDATE_NEW_POST_TEXT: {
-      state.newPostText = action.newText;
+      const stateCopy = { ...state };
 
-      return state;
+      stateCopy.newPostText = action.newText;
+
+      return stateCopy;
     }
 
     default:

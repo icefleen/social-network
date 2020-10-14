@@ -18,7 +18,7 @@ const Messenger = (props) => {
     <section className="main__messenger messenger">
       <div className="messenger__dialogs dialogs">
         {props.messengerState.dialogs.map((dialog) => (
-          <NavLink to={`/messenger/${dialog.penPalId}`}>
+          <NavLink to={`/messenger/${dialog.id}`} key={dialog.id}>
             <MessengerDialog
               avatar={dialog.avatar}
               fullname={dialog.fullname}
@@ -31,6 +31,7 @@ const Messenger = (props) => {
         <div className="messages__content">
           {props.messengerState.messages.map((message) => (
             <MessengerMessage
+              key={message.id}
               from={message.from}
               avatar={message.avatar}
               fullName={message.fullName}
