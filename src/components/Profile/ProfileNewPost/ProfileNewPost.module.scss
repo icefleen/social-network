@@ -1,0 +1,23 @@
+@import "./../../../global-styles/main.scss";
+
+.new-post {
+  display: flex;
+  padding: 15px 20px;
+
+  &__input {
+    padding: 10px 0;
+    outline: none;
+    border: none;
+    display: block;
+    width: 100%;
+  }
+
+  &__submit {
+    border: none;
+    border-radius: 3px;
+    background-color: $primary;
+    color: $white;
+    font-weight: bold;
+    padding: 0 20px;
+  }
+}

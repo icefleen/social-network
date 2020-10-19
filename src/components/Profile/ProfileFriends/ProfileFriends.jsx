@@ -1,13 +1,16 @@
 import React from "react";
+import styles from "./ProfileFriends.module.scss";
+import classnames from "classnames";
+
 import ProfileFriend from "./ProfileFriend/ProfileFriend";
 
 const ProfileFriends = (props) => {
   return (
-    <div className="profile__friends profile__block friends">
-      <h3 className="about__title">
-        Friends <span className="friends__count">46</span>
+    <div className={classnames(props.className, styles.friends)}>
+      <h3 className={classnames(styles.friends__title)}>
+        Friends <span className={classnames(styles.friends__count)}>46</span>
       </h3>
-      <div className="friends__list">
+      <div className={classnames(styles.friends__list)}>
         {props.friends.map((friend) => (
           <ProfileFriend
             key={friend.id}

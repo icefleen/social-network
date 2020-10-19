@@ -1,0 +1,15 @@
+@import "./../../global-styles/main.scss";
+
+.header {
+  background-color: $primary;
+  color: $white;
+  @extend %shadow;
+
+  &__wrapper {
+    padding: 15px 0;
+  }
+
+  &__brand {
+    font-size: 14px;
+  }
+}

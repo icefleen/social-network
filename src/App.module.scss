@@ -1,0 +1,19 @@
+@import "./global-styles/main.scss";
+
+.main {
+  &__wrapper {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__profile {
+    flex-grow: 1;
+    margin-left: 20px;
+  }
+
+  &__messenger {
+    flex-grow: 1;
+    margin-left: 20px;
+  }
+}

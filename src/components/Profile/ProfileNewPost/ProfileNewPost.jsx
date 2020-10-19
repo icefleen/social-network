@@ -1,4 +1,6 @@
 import React from "react";
+import styles from "./ProfileNewPost.module.scss";
+import classnames from "classnames";
 
 const ProfileNewPost = (props) => {
   const onSendClicked = () => {
@@ -12,11 +14,11 @@ const ProfileNewPost = (props) => {
   };
 
   return (
-    <div className="profile__block new-post">
+    <div className={classnames(props.className, styles["new-post"])}>
       <input
         ref={newPostInput}
         onChange={onNewPostInputHandler}
-        className="new-post__input"
+        className={classnames(styles["new-post__input"])}
         type="text"
         name="post text"
         placeholder="What's in your mind?"
@@ -25,7 +27,7 @@ const ProfileNewPost = (props) => {
 
       <button
         type="button"
-        className="new-post__submit"
+        className={classnames(styles["new-post__submit"])}
         onClick={onSendClicked}
       >
         Send

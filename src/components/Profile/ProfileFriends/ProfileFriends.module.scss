@@ -1,0 +1,19 @@
+@import "./../../../global-styles/main.scss";
+
+.friends {
+  &__title {
+    font-weight: bold;
+  }
+
+  &__count {
+    color: $gray;
+  }
+
+  &__list {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 25px;
+    row-gap: 15px;
+  }
+}

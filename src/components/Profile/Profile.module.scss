@@ -1,0 +1,29 @@
+@import "./../../global-styles/main.scss";
+
+.profile {
+  overflow: hidden;
+  border-radius: 3px;
+
+  &__columns {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 20px;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__block {
+    padding: 20px;
+    background-color: $white;
+    @extend %shadow;
+    border-radius: 3px;
+  }
+
+  &__friends {
+    margin-top: 20px;
+  }
+}

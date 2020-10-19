@@ -1,4 +1,7 @@
 import React from "react";
+import styles from "./Messenger.module.scss";
+import classnames from "classnames";
+
 import MessengerDialog from "./MessengerDialog/MessengerDialog";
 import MessengerMessage from "./MessengerMessage/MessengerMessage";
 import { NavLink } from "react-router-dom";
@@ -15,11 +18,12 @@ const Messenger = (props) => {
   };
 
   return (
-    <section className="main__messenger messenger">
-      <div className="messenger__dialogs dialogs">
+    <section className={classnames(props.className, styles.messenger)}>
+      <div className={classnames(styles.messenger__dialogs, styles.dialogs)}>
         {props.messengerState.dialogs.map((dialog) => (
           <NavLink to={`/messenger/${dialog.id}`} key={dialog.id}>
             <MessengerDialog
+              classname={classnames(styles.messenger__dialog)}
               avatar={dialog.avatar}
               fullname={dialog.fullname}
               lastMessage={dialog.lastMessage}
@@ -27,10 +31,11 @@ const Messenger = (props) => {
           </NavLink>
         ))}
       </div>
-      <div className="messenger__messages messages">
-        <div className="messages__content">
+      <div className={classnames(styles.messenger__messages, styles.messages)}>
+        <div className={classnames(styles.messages__content)}>
           {props.messengerState.messages.map((message) => (
             <MessengerMessage
+              classname={classnames(styles.messenger__message)}
               key={message.id}
               from={message.from}
               avatar={message.avatar}
@@ -39,12 +44,17 @@ const Messenger = (props) => {
             />
           ))}
         </div>
-        <div className="messages__new-message new-message">
+        <div
+          className={classnames(
+            styles["messages__new-message"],
+            styles["new-message"]
+          )}
+        >
           <input
             ref={newMessageInput}
             value={props.messengerState.newMessageText}
             onChange={onNewMessageInputHandler}
-            className="new-message__input"
+            className={classnames(styles["new-message__input"])}
             type="text"
             name="message text"
             placeholder="Write a message..."
@@ -52,7 +62,7 @@ const Messenger = (props) => {
 
           <button
             type="button"
-            className="new-message__submit"
+            className={classnames(styles["new-message__submit"])}
             onClick={onSendClicked}
           >
             Send

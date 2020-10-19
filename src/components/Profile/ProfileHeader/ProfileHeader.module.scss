@@ -1,0 +1,47 @@
+@import "./../../../global-styles/main.scss";
+
+.profile {
+  &__header {
+    background-color: $white;
+    @extend %shadow;
+  }
+
+  &__wrapper {
+    position: relative;
+    top: -135px;
+    padding: 0 30px 30px 30px;
+  }
+
+  &__background {
+    background: url(./../../../images/background.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+
+  &__avatar {
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 1);
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  &__fullName {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  &__status {
+    text-align: center;
+    padding-top: 10px;
+    width: 500px;
+    margin: 0 auto -135px auto;
+  }
+}

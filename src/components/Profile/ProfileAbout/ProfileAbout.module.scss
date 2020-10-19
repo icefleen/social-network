@@ -1,0 +1,19 @@
+@import "./../../../global-styles/main.scss";
+
+.about {
+  &__title {
+    font-weight: bold;
+  }
+
+  &__list {
+    margin-top: 10px;
+  }
+
+  &__item {
+    margin-top: 5px;
+  }
+
+  &__key {
+    color: $gray;
+  }
+}
