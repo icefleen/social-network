@@ -102,7 +102,7 @@ const store = {
         },
       ],
       newMessageText: "",
-    },
+    }
   },
 
   _callbackSubscriber() {

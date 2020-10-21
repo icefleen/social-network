@@ -2,9 +2,8 @@ import Profile from "./Profile";
 
 import { connect } from "react-redux";
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   profileState: state.profileState,
-  ...ownProps,
 });
 
 const ProfileContainer = connect(mapStateToProps)(Profile);

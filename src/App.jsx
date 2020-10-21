@@ -10,6 +10,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
+import PeopleContainer from "./components/People/PeopleContainer";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             )}
           />
           <Route path="/messenger" render={() => <MessengerContainer />} />
+          <Route path="/people" render={() => <PeopleContainer className={classnames(styles.main__people)} />} />
           <Route path="/news" render={() => <News />} />
           <Route path="/music" render={() => <Music />} />
           <Route path="/settings" render={() => <Settings />} />

@@ -25,7 +25,7 @@ const Messenger = (props) => {
             <MessengerDialog
               classname={classnames(styles.messenger__dialog)}
               avatar={dialog.avatar}
-              fullname={dialog.fullname}
+              fullName={dialog.fullName}
               lastMessage={dialog.lastMessage}
             />
           </NavLink>

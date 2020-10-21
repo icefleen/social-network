@@ -10,7 +10,7 @@ const MessengerDialog = (props) => {
       </div>
       <div className={classnames(styles.dialog__info)}>
         <div className={classnames(styles.dialog__fullName)}>
-          {props.fullname}
+          {props.fullName}
         </div>
         <div className={classnames(styles["dialog__last-message"])}>
           {props.lastMessage}

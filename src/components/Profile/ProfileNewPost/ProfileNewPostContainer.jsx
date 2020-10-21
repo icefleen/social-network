@@ -6,9 +6,7 @@ import {
 } from "../../../redux/profileReducer";
 import ProfileNewPost from "./ProfileNewPost";
 
-const mapStateToProps = (state, ownProps) => ({
-  ...ownProps,
-});
+const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = (dispatch) => ({
   addPost: () => dispatch(addPostActionCreator()),

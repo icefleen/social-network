@@ -13,37 +13,37 @@ const initialState = {
   dialogs: [
     {
       id: 1,
-      fullname: "Emma Watson",
+      fullName: "Emma Watson",
       avatar: emmaAvatar,
       lastMessage: "Hello :) My name is Emma and I am 18 years old",
     },
     {
       id: 2,
-      fullname: "Alex Williams",
+      fullName: "Alex Williams",
       avatar: alexAvatar,
       lastMessage: "Hello :) My name is Alex and I am 18 years old",
     },
     {
       id: 3,
-      fullname: "Elena Cooper",
+      fullName: "Elena Cooper",
       avatar: elenaAvatar,
       lastMessage: "Hello :) My name is Elena and I am 18 years old",
     },
     {
       id: 4,
-      fullname: "Paul Conor",
+      fullName: "Paul Conor",
       avatar: paulAvatar,
       lastMessage: "Hello :) My name is Paul and I am 18 years old",
     },
     {
       id: 5,
-      fullname: "Katrin Lee",
+      fullName: "Katrin Lee",
       avatar: katrinAvatar,
       lastMessage: "Hello :) My name is Katrin and I am 18 years old",
     },
     {
       id: 6,
-      fullname: "Steve Clark",
+      fullName: "Steve Clark",
       avatar: steveAvatar,
       lastMessage: "Hello :) My name is Steve and I am 18 years old",
     },
@@ -69,7 +69,7 @@ const initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_MESSAGE: {
+    case ADD_MESSAGE:
       const message = {
         id: 7,
         from: "me",
@@ -83,14 +83,12 @@ const dialogsReducer = (state = initialState, action) => {
         messages: [...state.messages, message],
         newMessageText: "",
       };
-    }
 
-    case UPDATE_NEW_MESSAGE_TEXT: {
+    case UPDATE_NEW_MESSAGE_TEXT:
       return {
         ...state,
         newMessageText: action.newText,
       };
-    }
 
     default:
       return state;
