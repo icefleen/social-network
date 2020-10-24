@@ -2,9 +2,11 @@ const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const APPEND_PEOPLE = "APPEND PEOPLE";
 const CLEAR_PEOPLE = "CLEAR PEOPLE";
+const TOGGLE_FETCHING = "TOGGLE FETCHING";
 
 const initialState = {
   people: [],
+  isFetching: false,
 };
 
 const peopleReducer = (state = initialState, action) => {
@@ -45,28 +47,36 @@ const peopleReducer = (state = initialState, action) => {
     case CLEAR_PEOPLE:
       return { ...state, people: [] };
 
+    case TOGGLE_FETCHING:
+      return { ...state, isFetching: action.isFetching };
+
     default:
       return state;
   }
 };
 
-export const followActionCreator = (userId) => ({
+export const follow = (userId) => ({
   type: FOLLOW,
   userId,
 });
 
-export const unfollowActionCreator = (userId) => ({
+export const unfollow = (userId) => ({
   type: UNFOLLOW,
   userId,
 });
 
-export const appendPeopleActionCreator = (people) => ({
+export const appendPeople = (people) => ({
   type: APPEND_PEOPLE,
   people,
 });
 
-export const clearPeopleActionCreator = () => ({
+export const clearPeople = () => ({
   type: CLEAR_PEOPLE,
+});
+
+export const toggleFetching = (isFetching) => ({
+  type: TOGGLE_FETCHING,
+  isFetching,
 });
 
 export default peopleReducer;
