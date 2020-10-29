@@ -21,13 +21,13 @@ function App() {
           <Navbar className={classnames(styles.main__nav)} />
 
           <Route
-            path="/profile"
+            path="/profile/:id?"
             render={() => (
-              <ProfileContainer className={classnames(styles.main__profile)} />
+              <ProfileContainer />
             )}
           />
           <Route path="/messenger" render={() => <MessengerContainer />} />
-          <Route path="/people" render={() => <PeopleContainer className={classnames(styles.main__people)} />} />
+          <Route path="/people" render={() => <PeopleContainer />} />
           <Route path="/news" render={() => <News />} />
           <Route path="/music" render={() => <Music />} />
           <Route path="/settings" render={() => <Settings />} />

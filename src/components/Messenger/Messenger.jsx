@@ -18,7 +18,7 @@ const Messenger = (props) => {
   };
 
   return (
-    <section className={classnames(props.className, styles.messenger)}>
+    <section className={classnames(styles.messenger)}>
       <div className={classnames(styles.messenger__dialogs, styles.dialogs)}>
         {props.messengerState.dialogs.map((dialog) => (
           <NavLink to={`/messenger/${dialog.id}`} key={dialog.id}>

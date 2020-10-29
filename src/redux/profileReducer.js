@@ -1,15 +1,14 @@
 import avatar from "./../images/avatar.jpg";
-import emmaAvatar from "./../images/emma-avatar.jpg";
-import paulAvatar from "./../images/paul-avatar.jpg";
-import elenaAvatar from "./../images/elena-avatar.jpg";
-import katrinAvatar from "./../images/katrin-avatar.jpg";
-import steveAvatar from "./../images/steve-avatar.jpg";
-import alexAvatar from "./../images/alex-avatar.jpg";
 
 const ADD_POST = "ADD POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE NEW POST TEXT";
+const SET_PROFILE = "SET PROFILE";
+const CLEAR_PROFILE = "CLEAR PROFILE";
+const TOGGLE_LOADING = "TOGGLE LOADING";
 
 const initialState = {
+  isLoading: false,
+  friends: [],
   profilePosts: [
     {
       id: 1,
@@ -25,39 +24,6 @@ const initialState = {
       avatar: avatar,
       fullName: "Daniil Yandybaev",
       datetime: "49 minutes ago",
-    },
-  ],
-
-  friends: [
-    {
-      id: 1,
-      avatar: emmaAvatar,
-      firstName: "Emma",
-    },
-    {
-      id: 2,
-      avatar: paulAvatar,
-      firstName: "Paul",
-    },
-    {
-      id: 3,
-      avatar: elenaAvatar,
-      firstName: "Elena",
-    },
-    {
-      id: 4,
-      avatar: katrinAvatar,
-      firstName: "Katrin",
-    },
-    {
-      id: 5,
-      avatar: steveAvatar,
-      firstName: "Steve",
-    },
-    {
-      id: 6,
-      avatar: alexAvatar,
-      firstName: "Alex",
     },
   ],
 
@@ -87,6 +53,15 @@ const profileReducer = (state = initialState, action) => {
         newPostText: action.newText,
       };
 
+    case SET_PROFILE:
+      return { ...action.profile };
+
+    case CLEAR_PROFILE:
+      return initialState;
+
+    case TOGGLE_LOADING:
+      return { ...state, isLoading: action.isLoading };
+
     default:
       return state;
   }
@@ -99,6 +74,20 @@ export const addPost = () => ({
 export const updateNewPostText = (newText) => ({
   type: UPDATE_NEW_POST_TEXT,
   newText,
+});
+
+export const setProfile = (profile) => ({
+  type: SET_PROFILE,
+  profile,
+});
+
+export const clearProfile = () => ({
+  type: CLEAR_PROFILE,
+});
+
+export const toggleLoading = (isLoading) => ({
+  type: TOGGLE_LOADING,
+  isLoading,
 });
 
 export default profileReducer;

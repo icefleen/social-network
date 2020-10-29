@@ -5,20 +5,22 @@ import Spinner from "./../Spinner/Spinner";
 
 import defaultAvatar from "./../../images/default-avatar.png";
 
+import {NavLink} from "react-router-dom";
+
 const People = (props) => {
   return (
-    <div className={classnames(props.className, styles.people)}>
+    <div className={classnames(styles.people)}>
       <div className={classnames(styles.people__wrapper)}>
         {props.peopleState.people.map((user) => {
           return (
             <div key={user.id} className={classnames(styles.user)}>
-              <div className={classnames(styles.user__avatar)}>
+              <NavLink to={`/profile/${user.id}`} className={classnames(styles.user__avatar)}>
                 <img src={user.avatar || defaultAvatar} alt="avatar" />
-              </div>
+              </NavLink>
               <div className={classnames(styles.user__info)}>
-                <div className={classnames(styles.user__fullName)}>
+                <NavLink to={`/profile/${user.id}`}  className={classnames(styles.user__fullName)}>
                   {user.fullName}
-                </div>
+                </NavLink>
                 <div className={classnames(styles.user__location)}>
                   {user.location.country}, {user.location.city}
                 </div>

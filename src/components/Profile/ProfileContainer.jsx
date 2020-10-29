@@ -1,11 +1,43 @@
+import React from "react";
 import Profile from "./Profile";
 
 import { connect } from "react-redux";
+import * as axios from "axios";
+
+import {
+  setProfile,
+  clearProfile,
+  toggleLoading,
+} from "../../redux/profileReducer";
+import { withRouter } from "react-router-dom";
+
+class ProfileAPI extends React.Component {
+  componentDidMount = () => {
+    const userId = this.props.match.params.id || 1;
+
+    this.props.toggleLoading(true);
+
+    axios.get(`/api/profile/${userId}`).then((response) => {
+      this.props.setProfile(response.data);
+      this.props.toggleLoading(false);
+    });
+  };
+
+  componentWillUnmount = () => {
+    this.props.clearProfile();
+  };
+
+  render() {
+    return <Profile profileState={this.props.profileState} />;
+  }
+}
 
 const mapStateToProps = (state) => ({
   profileState: state.profileState,
 });
 
-const ProfileContainer = connect(mapStateToProps)(Profile);
-
-export default ProfileContainer;
+export default connect(mapStateToProps, {
+  setProfile,
+  clearProfile,
+  toggleLoading,
+})(withRouter(ProfileAPI));

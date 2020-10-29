@@ -1,5 +1,6 @@
 const express = require("express");
 const users = require("./routes/users/users");
+const profile = require("./routes/profile/profile");
 const bodyParser = require("body-parser");
 
 const app = express();
@@ -10,6 +11,7 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 
 app.use("/api", users);
+app.use("/api", profile);
 
 app.get("/", (req, res) => {
   res.send("main");

@@ -1,24 +1,25 @@
 import React from "react";
 import styles from "./ProfileHeader.module.scss";
 import classnames from "classnames";
+import defaultAvatar from "../../../images/default-avatar.png";
 
-import avatar from "./../../../images/avatar.jpg";
-
-const ProfileHeader = () => {
+const ProfileHeader = (props) => {
   return (
     <div className={classnames(styles.profile__header)}>
       <div className={classnames(styles.profile__background)}></div>
       <div className={classnames(styles.profile__wrapper)}>
         <div className={classnames(styles.profile__about)}>
           <div className={classnames(styles.profile__avatar)}>
-            <img src={avatar} alt="avatar" />
+            <img
+              src={props.profileState.avatar || defaultAvatar}
+              alt="avatar"
+            />
           </div>
           <h3 className={classnames(styles.profile__fullName)}>
-            Daniil Yandybaev
+            {props.profileState.fullName}
           </h3>
           <p className={classnames(styles.profile__status)}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia illo
-            autem perspiciatis quos.
+            {props.profileState.status}
           </p>
         </div>
       </div>
