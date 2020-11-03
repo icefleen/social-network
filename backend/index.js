@@ -12,6 +12,7 @@ app.use(express.static("public"));
 
 app.use("/api", users);
 app.use("/api", profile);
+app.use("/api", require("./routes/auth/auth"));
 
 app.get("/", (req, res) => {
   res.send("main");

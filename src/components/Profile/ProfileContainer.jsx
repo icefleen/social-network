@@ -12,7 +12,7 @@ import {
 import { withRouter } from "react-router-dom";
 
 class ProfileAPI extends React.Component {
-  componentDidMount = () => {
+  loadProfile = () => {
     const userId = this.props.match.params.id || 1;
 
     this.props.toggleLoading(true);
@@ -21,6 +21,16 @@ class ProfileAPI extends React.Component {
       this.props.setProfile(response.data);
       this.props.toggleLoading(false);
     });
+  };
+
+  componentDidMount = () => {
+    this.loadProfile();
+  };
+
+  componentDidUpdate = (prevProps) => {
+    if (prevProps.match.params.id !== this.props.match.params.id) {
+      this.loadProfile();
+    }
   };
 
   componentWillUnmount = () => {

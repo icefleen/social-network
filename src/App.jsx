@@ -3,7 +3,7 @@ import styles from "./App.module.scss";
 import classnames from "classnames";
 
 import Header from "./components/Header/Header";
-import Navbar from "./components/Navbar/Navbar";
+import NavbarContainer from "./components/Navbar/NavbarContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import MessengerContainer from "./components/Messenger/MessengerContainer";
 import { BrowserRouter, Route } from "react-router-dom";
@@ -18,7 +18,7 @@ function App() {
       <Header />
       <main className={classnames(styles.main)}>
         <div className={classnames(styles.main__wrapper, styles.container)}>
-          <Navbar className={classnames(styles.main__nav)} />
+          <NavbarContainer className={classnames(styles.main__nav)} />
 
           <Route
             path="/profile/:id?"

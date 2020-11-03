@@ -30,3 +30,6 @@ debug.log
 
 # backend depencies
 backend/node_modules
+
+# idea
+.idea

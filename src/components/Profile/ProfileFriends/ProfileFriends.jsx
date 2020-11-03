@@ -15,6 +15,7 @@ const ProfileFriends = (props) => {
         {props.friends.slice(0, 8).map((friend) => (
           <ProfileFriend
             key={friend.id}
+            id={friend.id}
             avatar={friend.avatar || defaultAvatar}
             firstName={friend.fullName.split(" ")[0]}
           />

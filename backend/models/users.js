@@ -48,6 +48,13 @@ const users = [
     location: { country: "Russia", city: "Saratov" },
     followed: true,
   },
+  {
+    id: 8,
+    fullName: "Daniil Yandybaev",
+    avatar: "/avatar.jpg",
+    location: { country: "Russia", city: "Saratov" },
+    followed: true,
+  },
 ];
 
 module.exports = users;
