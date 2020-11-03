@@ -2,13 +2,13 @@ import React from "react";
 import Navbar from "./Navbar";
 import { connect } from "react-redux";
 import { setUserData } from "../../redux/authReducer";
-import * as axios from "axios";
+import { authAPI } from "../../api/api";
 
 class NavbarAPI extends React.Component {
   componentDidMount = () => {
-    axios.get("/api/auth/me", { withCredentials: true }).then((response) => {
-      if (response.data.success) {
-        const { userId, email, login } = response.data.userInfo;
+    authAPI.getUserData().then((data) => {
+      if (data.success) {
+        const { userId, email, login } = data.userInfo;
         this.props.setUserData(userId, email, login);
       }
     });

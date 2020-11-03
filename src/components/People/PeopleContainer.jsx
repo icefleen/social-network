@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import { usersAPI } from "../../api/api";
 import People from "./People";
 
 import { connect } from "react-redux";
@@ -8,7 +8,8 @@ import {
   clearPeople,
   follow,
   toggleFetching,
-  unfollow,
+  unFollow,
+  toggleFollowing,
 } from "../../redux/peopleReducer";
 
 class PeopleAPI extends React.Component {
@@ -23,9 +24,31 @@ class PeopleAPI extends React.Component {
   loadUsers = (offset) => {
     this.props.toggleFetching(true);
 
-    axios.get(`/api/users?offset=${offset}&limit=3`).then((response) => {
+    usersAPI.getUsers(offset, 3).then((data) => {
       this.props.toggleFetching(false);
-      this.props.appendPeople(response.data.items);
+      this.props.appendPeople(data.items);
+    });
+  };
+
+  follow = (userId) => {
+    this.props.toggleFollowing(true, userId);
+
+    usersAPI.follow(userId).then((data) => {
+      if (data.success) {
+        this.props.follow(userId);
+        this.props.toggleFollowing(false, userId);
+      }
+    });
+  };
+
+  unFollow = (userId) => {
+    this.props.toggleFollowing(true, userId);
+
+    usersAPI.unFollow(userId).then((data) => {
+      if (data.success) {
+        this.props.unFollow(userId);
+        this.props.toggleFollowing(false, userId);
+      }
     });
   };
 
@@ -35,8 +58,8 @@ class PeopleAPI extends React.Component {
         className={this.props.className}
         peopleState={this.props.peopleState}
         loadUsers={this.loadUsers}
-        follow={this.props.follow}
-        unfollow={this.props.unfollow}
+        follow={this.follow}
+        unFollow={this.unFollow}
       />
     );
   };
@@ -48,8 +71,9 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   follow,
-  unfollow,
+  unFollow,
   appendPeople,
   clearPeople,
   toggleFetching,
+  toggleFollowing,
 })(PeopleAPI);

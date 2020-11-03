@@ -3,10 +3,12 @@ const UNFOLLOW = "UNFOLLOW";
 const APPEND_PEOPLE = "APPEND PEOPLE";
 const CLEAR_PEOPLE = "CLEAR PEOPLE";
 const TOGGLE_FETCHING = "TOGGLE FETCHING";
+const TOGGLE_FOLLOWING = "TOGGLE FOLLOWING";
 
 const initialState = {
   people: [],
   isFetching: false,
+  followingProgress: [],
 };
 
 const peopleReducer = (state = initialState, action) => {
@@ -50,6 +52,14 @@ const peopleReducer = (state = initialState, action) => {
     case TOGGLE_FETCHING:
       return { ...state, isFetching: action.isFetching };
 
+    case TOGGLE_FOLLOWING:
+      return {
+        ...state,
+        followingProgress: action.isFollowing
+          ? [...state.followingProgress, action.userId]
+          : state.followingProgress.filter((id) => id !== action.userId),
+      };
+
     default:
       return state;
   }
@@ -60,7 +70,7 @@ export const follow = (userId) => ({
   userId,
 });
 
-export const unfollow = (userId) => ({
+export const unFollow = (userId) => ({
   type: UNFOLLOW,
   userId,
 });
@@ -77,6 +87,12 @@ export const clearPeople = () => ({
 export const toggleFetching = (isFetching) => ({
   type: TOGGLE_FETCHING,
   isFetching,
+});
+
+export const toggleFollowing = (isFollowing, userId) => ({
+  type: TOGGLE_FOLLOWING,
+  isFollowing,
+  userId,
 });
 
 export default peopleReducer;

@@ -13,6 +13,7 @@ app.use(express.static("public"));
 app.use("/api", users);
 app.use("/api", profile);
 app.use("/api", require("./routes/auth/auth"));
+app.use("/api", require("./routes/follow/follow"));
 
 app.get("/", (req, res) => {
   res.send("main");

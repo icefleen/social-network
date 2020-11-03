@@ -2,7 +2,6 @@ import React from "react";
 import Profile from "./Profile";
 
 import { connect } from "react-redux";
-import * as axios from "axios";
 
 import {
   setProfile,
@@ -10,6 +9,7 @@ import {
   toggleLoading,
 } from "../../redux/profileReducer";
 import { withRouter } from "react-router-dom";
+import { profileAPI } from "../../api/api";
 
 class ProfileAPI extends React.Component {
   loadProfile = () => {
@@ -17,8 +17,8 @@ class ProfileAPI extends React.Component {
 
     this.props.toggleLoading(true);
 
-    axios.get(`/api/profile/${userId}`).then((response) => {
-      this.props.setProfile(response.data);
+    profileAPI.getProfile(userId).then((data) => {
+      this.props.setProfile(data);
       this.props.toggleLoading(false);
     });
   };
