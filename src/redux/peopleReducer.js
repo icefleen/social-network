@@ -1,3 +1,5 @@
+import { usersAPI } from "../api/api";
+
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const APPEND_PEOPLE = "APPEND PEOPLE";
@@ -65,12 +67,12 @@ const peopleReducer = (state = initialState, action) => {
   }
 };
 
-export const follow = (userId) => ({
+export const followSuccess = (userId) => ({
   type: FOLLOW,
   userId,
 });
 
-export const unFollow = (userId) => ({
+export const unFollowSuccess = (userId) => ({
   type: UNFOLLOW,
   userId,
 });
@@ -94,5 +96,36 @@ export const toggleFollowing = (isFollowing, userId) => ({
   isFollowing,
   userId,
 });
+
+export const getUsers = (offset) => (dispatch) => {
+  dispatch(toggleFetching(true));
+
+  usersAPI.getUsers(offset, 3).then((data) => {
+    dispatch(toggleFetching(false));
+    dispatch(appendPeople(data.items));
+  });
+};
+
+export const follow = (userId) => (dispatch) => {
+  dispatch(toggleFollowing(true, userId));
+
+  usersAPI.follow(userId).then((data) => {
+    if (data.success) {
+      dispatch(followSuccess(userId));
+      dispatch(toggleFollowing(false, userId));
+    }
+  });
+};
+
+export const unFollow = (userId) => (dispatch) => {
+  dispatch(toggleFollowing(true, userId));
+
+  usersAPI.unFollow(userId).then((data) => {
+    if (data.success) {
+      dispatch(unFollowSuccess(userId));
+      dispatch(toggleFollowing(false, userId));
+    }
+  });
+};
 
 export default peopleReducer;

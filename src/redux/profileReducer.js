@@ -1,3 +1,4 @@
+import { profileAPI } from "../api/api";
 import avatar from "./../images/avatar.jpg";
 
 const ADD_POST = "ADD POST";
@@ -89,5 +90,14 @@ export const toggleLoading = (isLoading) => ({
   type: TOGGLE_LOADING,
   isLoading,
 });
+
+export const getProfile = (userId) => (dispatch) => {
+  dispatch(toggleLoading(true));
+
+  profileAPI.getProfile(userId).then((data) => {
+    dispatch(setProfile(data));
+    dispatch(toggleLoading(false));
+  });
+};
 
 export default profileReducer;

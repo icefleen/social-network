@@ -1,17 +1,11 @@
 import React from "react";
 import Navbar from "./Navbar";
 import { connect } from "react-redux";
-import { setUserData } from "../../redux/authReducer";
-import { authAPI } from "../../api/api";
+import { setUserData, getUserData } from "../../redux/authReducer";
 
 class NavbarAPI extends React.Component {
   componentDidMount = () => {
-    authAPI.getUserData().then((data) => {
-      if (data.success) {
-        const { userId, email, login } = data.userInfo;
-        this.props.setUserData(userId, email, login);
-      }
-    });
+    this.props.getUserData();
   };
 
   render() {
@@ -24,4 +18,6 @@ const mapStateToProps = (state, ownProps) => ({
   ownProps,
 });
 
-export default connect(mapStateToProps, { setUserData })(NavbarAPI);
+export default connect(mapStateToProps, { setUserData, getUserData })(
+  NavbarAPI
+);

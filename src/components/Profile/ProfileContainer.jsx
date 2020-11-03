@@ -4,23 +4,16 @@ import Profile from "./Profile";
 import { connect } from "react-redux";
 
 import {
-  setProfile,
   clearProfile,
-  toggleLoading,
+  getProfile
 } from "../../redux/profileReducer";
 import { withRouter } from "react-router-dom";
-import { profileAPI } from "../../api/api";
 
 class ProfileAPI extends React.Component {
   loadProfile = () => {
     const userId = this.props.match.params.id || 1;
 
-    this.props.toggleLoading(true);
-
-    profileAPI.getProfile(userId).then((data) => {
-      this.props.setProfile(data);
-      this.props.toggleLoading(false);
-    });
+    this.props.getProfile(userId);
   };
 
   componentDidMount = () => {
@@ -47,7 +40,6 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, {
-  setProfile,
   clearProfile,
-  toggleLoading,
+  getProfile
 })(withRouter(ProfileAPI));
