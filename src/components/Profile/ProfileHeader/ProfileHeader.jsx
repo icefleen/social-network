@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./ProfileHeader.module.scss";
 import classnames from "classnames";
 import defaultAvatar from "../../../images/default-avatar.png";
+import ProfileStatus from "./ProfileStatus/ProfileStatus";
 
 const ProfileHeader = (props) => {
   return (
@@ -19,7 +20,7 @@ const ProfileHeader = (props) => {
             {props.profileState.fullName}
           </h3>
           <p className={classnames(styles.profile__status)}>
-            {props.profileState.status}
+            <ProfileStatus status={props.profileState.status} />
           </p>
         </div>
       </div>
