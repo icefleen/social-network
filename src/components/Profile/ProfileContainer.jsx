@@ -3,11 +3,10 @@ import Profile from "./Profile";
 
 import { connect } from "react-redux";
 
-import {
-  clearProfile,
-  getProfile
-} from "../../redux/profileReducer";
+import { clearProfile, getProfile } from "../../redux/profileReducer";
 import { withRouter } from "react-router-dom";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+import { compose } from "redux";
 
 class ProfileAPI extends React.Component {
   loadProfile = () => {
@@ -39,7 +38,11 @@ const mapStateToProps = (state) => ({
   profileState: state.profileState,
 });
 
-export default connect(mapStateToProps, {
-  clearProfile,
-  getProfile
-})(withRouter(ProfileAPI));
+export default compose(
+  connect(mapStateToProps, {
+    clearProfile,
+    getProfile,
+  }),
+  withRouter,
+  withAuthRedirect
+)(ProfileAPI);

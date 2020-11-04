@@ -5,7 +5,10 @@ import { NavLink } from "react-router-dom";
 
 const ProfileFriend = (props) => {
   return (
-    <NavLink to={`/profile/${props.id}`} className={classnames(props.className, styles.friend)}>
+    <NavLink
+      to={`/profile/${props.id}`}
+      className={classnames(props.className, styles.friend)}
+    >
       <div className={classnames(styles.friend__avatar)}>
         <img src={props.avatar} alt="avatar" />
       </div>

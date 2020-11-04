@@ -1,12 +1,14 @@
 import { authAPI } from "../api/api";
 
 const SET_USER_DATA = "SET USER DATA";
+const TOGGLE_IS_LOGGED = "TOGGLE IS LOGGED";
 
 const initialState = {
   userId: null,
   email: null,
   login: null,
   isFetching: false,
+  isLogged: true,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -15,6 +17,12 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.data,
+      };
+
+    case TOGGLE_IS_LOGGED:
+      return {
+        ...state,
+        isLogged: action.isLogged,
       };
 
     default:
@@ -31,6 +39,11 @@ export const setUserData = (userId, email, login) => ({
   },
 });
 
+export const toggleIsLogged = (isLogged) => ({
+  type: TOGGLE_IS_LOGGED,
+  isLogged,
+});
+
 export const getUserData = () => (dispatch) => {
   authAPI.getUserData().then((data) => {
     if (data.success) {
@@ -38,6 +51,6 @@ export const getUserData = () => (dispatch) => {
       dispatch(setUserData(userId, email, login));
     }
   });
-}
+};
 
 export default authReducer;

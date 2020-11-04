@@ -9,6 +9,8 @@ import {
   follow,
   unFollow,
 } from "../../redux/peopleReducer";
+import { compose } from "redux";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 class PeopleAPI extends React.Component {
   componentDidMount = () => {
@@ -48,10 +50,13 @@ const mapStateToProps = (state) => ({
   peopleState: state.peopleState,
 });
 
-export default connect(mapStateToProps, {
-  follow,
-  unFollow,
-  clearPeople,
-  toggleFollowing,
-  getUsers,
-})(PeopleAPI);
+export default compose(
+  connect(mapStateToProps, {
+    follow,
+    unFollow,
+    clearPeople,
+    toggleFollowing,
+    getUsers,
+  }),
+  withAuthRedirect
+)(PeopleAPI);

@@ -9,7 +9,10 @@ const ProfileFriends = (props) => {
   return (
     <div className={classnames(props.className, styles.friends)}>
       <h3 className={classnames(styles.friends__title)}>
-  Friends <span className={classnames(styles.friends__count)}>{props.friends.length}</span>
+        Friends{" "}
+        <span className={classnames(styles.friends__count)}>
+          {props.friends.length}
+        </span>
       </h3>
       <div className={classnames(styles.friends__list)}>
         {props.friends.slice(0, 8).map((friend) => (
