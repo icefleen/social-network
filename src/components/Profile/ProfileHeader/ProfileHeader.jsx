@@ -20,7 +20,7 @@ const ProfileHeader = (props) => {
             {props.profileState.fullName}
           </h3>
           <p className={classnames(styles.profile__status)}>
-            <ProfileStatus status={props.profileState.status} />
+            <ProfileStatus status={props.profileState.status} updateStatus={props.updateStatus} />
           </p>
         </div>
       </div>

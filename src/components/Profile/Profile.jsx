@@ -15,7 +15,10 @@ const Profile = (props) => {
       {props.profileState.isLoading && <Spinner />}
       {props.profileState.isLoading || (
         <section className={classnames(styles.profile)}>
-          <ProfileHeader profileState={props.profileState} />
+          <ProfileHeader
+            profileState={props.profileState}
+            updateStatus={props.updateStatus}
+          />
           <div className={classnames(styles.profile__columns)}>
             <div className={classnames(styles.profile__left)}>
               <ProfileAbout className={styles.profile__block} />

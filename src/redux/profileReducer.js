@@ -6,9 +6,11 @@ const UPDATE_NEW_POST_TEXT = "UPDATE NEW POST TEXT";
 const SET_PROFILE = "SET PROFILE";
 const CLEAR_PROFILE = "CLEAR PROFILE";
 const TOGGLE_LOADING = "TOGGLE LOADING";
+const SET_STATUS = "SET STATUS";
 
 const initialState = {
   isLoading: false,
+  status: "",
   friends: [],
   profilePosts: [
     {
@@ -63,6 +65,9 @@ const profileReducer = (state = initialState, action) => {
     case TOGGLE_LOADING:
       return { ...state, isLoading: action.isLoading };
 
+    case SET_STATUS:
+      return { ...state, status: action.status };
+
     default:
       return state;
   }
@@ -91,12 +96,25 @@ export const toggleLoading = (isLoading) => ({
   isLoading,
 });
 
+export const setStatus = (status) => ({
+  type: SET_STATUS,
+  status,
+});
+
 export const getProfile = (userId) => (dispatch) => {
   dispatch(toggleLoading(true));
 
   profileAPI.getProfile(userId).then((data) => {
     dispatch(setProfile(data));
     dispatch(toggleLoading(false));
+  });
+};
+
+export const updateStatus = (status) => (dispatch) => {
+  profileAPI.updateStatus(status).then((data) => {
+    if (data.success) {
+      dispatch(setStatus(status));
+    }
   });
 };
 

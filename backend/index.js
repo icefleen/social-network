@@ -14,6 +14,7 @@ app.use("/api", users);
 app.use("/api", profile);
 app.use("/api", require("./routes/auth/auth"));
 app.use("/api", require("./routes/follow/follow"));
+app.use("/api", require("./routes/status/status"));
 
 app.get("/", (req, res) => {
   res.send("main");
