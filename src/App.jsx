@@ -11,7 +11,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import PeopleContainer from "./components/People/PeopleContainer";
-import Login from "./components/Login/Login";
+import Authorization from "./components/Authorization/Authorization";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
       <main className={classnames(styles.main)}>
         <div className={classnames(styles.main__wrapper, styles.container)}>
           <NavbarContainer className={classnames(styles.main__nav)} />
-          <Route path="/login" render={() => <Login />} />
+          <Route path="/auth" render={() => <Authorization />} />
           <Route path="/profile/:id?" render={() => <ProfileContainer />} />
           <Route path="/messenger" render={() => <MessengerContainer />} />
           <Route path="/people" render={() => <PeopleContainer />} />

@@ -1,0 +1,15 @@
+@import "../../global-styles/main.scss";
+
+.wrapper {
+  background-color: $lighter;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  display: flex;
+  justify-content: center;
+
+  .loginForm {
+    margin: 0 auto;
+  }
+}
+
