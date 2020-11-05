@@ -7,7 +7,6 @@ import steveAvatar from "./../images/steve-avatar.jpg";
 import alexAvatar from "./../images/alex-avatar.jpg";
 
 const ADD_MESSAGE = "ADD MESSAGE";
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE NEW MESSAGE TEXT";
 
 const initialState = {
   dialogs: [
@@ -64,30 +63,22 @@ const initialState = {
       text: "Hi! I'm ok :) I know you? Where are you from?",
     },
   ],
-  newMessageText: "",
 };
 
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MESSAGE:
       const message = {
-        id: 7,
+        id: state.messages.length + 1,
         from: "me",
         avatar: avatar,
         fullName: "Daniil Yandybaev",
-        text: state.newMessageText,
+        text: action.messageText,
       };
 
       return {
         ...state,
         messages: [...state.messages, message],
-        newMessageText: "",
-      };
-
-    case UPDATE_NEW_MESSAGE_TEXT:
-      return {
-        ...state,
-        newMessageText: action.newText,
       };
 
     default:
@@ -95,13 +86,9 @@ const dialogsReducer = (state = initialState, action) => {
   }
 };
 
-export const addMessage = () => ({
+export const addMessage = (messageText) => ({
   type: ADD_MESSAGE,
-});
-
-export const updateNewMessageText = (newText) => ({
-  type: UPDATE_NEW_MESSAGE_TEXT,
-  newText,
+  messageText,
 });
 
 export default dialogsReducer;

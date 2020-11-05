@@ -5,16 +5,11 @@ import classnames from "classnames";
 import MessengerDialog from "./MessengerDialog/MessengerDialog";
 import MessengerMessage from "./MessengerMessage/MessengerMessage";
 import { NavLink } from "react-router-dom";
+import NewMessage from "./NewMessage/NewMessage";
 
 const Messenger = (props) => {
-  const onSendClicked = () => {
-    props.addMessage();
-  };
-
-  const newMessageInput = React.createRef();
-
-  const onNewMessageInputHandler = () => {
-    props.updateNewMessageText(newMessageInput.current.value);
+  const onSendClicked = (formData) => {
+    props.addMessage(formData.messageText);
   };
 
   return (
@@ -44,30 +39,7 @@ const Messenger = (props) => {
             />
           ))}
         </div>
-        <div
-          className={classnames(
-            styles["messages__new-message"],
-            styles["new-message"]
-          )}
-        >
-          <input
-            ref={newMessageInput}
-            value={props.messengerState.newMessageText}
-            onChange={onNewMessageInputHandler}
-            className={classnames(styles["new-message__input"])}
-            type="text"
-            name="message text"
-            placeholder="Write a message..."
-          />
-
-          <button
-            type="button"
-            className={classnames(styles["new-message__submit"])}
-            onClick={onSendClicked}
-          >
-            Send
-          </button>
-        </div>
+        <NewMessage onSubmit={onSendClicked} />
       </div>
     </section>
   );

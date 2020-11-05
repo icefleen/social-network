@@ -6,10 +6,14 @@ import ProfileAbout from "./ProfileAbout/ProfileAbout";
 import ProfileHeader from "./ProfileHeader/ProfileHeader";
 import ProfileFriends from "./ProfileFriends/ProfileFriends";
 import ProfilePost from "./ProfilePost/ProfilePost";
-import ProfileNewPostContainer from "./ProfileNewPost/ProfileNewPostContainer";
+import ProfileNewPost from "./ProfileNewPost/ProfileNewPost";
 import Spinner from "../Spinner/Spinner";
 
 const Profile = (props) => {
+  const onSendClicked = (formData) => {
+    props.addPost(formData.postText);
+  };
+
   return (
     <>
       {props.profileState.isLoading && <Spinner />}
@@ -31,9 +35,9 @@ const Profile = (props) => {
               />
             </div>
             <div className={classnames(styles.profile__right)}>
-              <ProfileNewPostContainer
+              <ProfileNewPost
+                onSubmit={onSendClicked}
                 className={classnames(styles.profile__block)}
-                newPostText={props.profileState.newPostText}
               />
               <div className={classnames(styles.posts)}>
                 {[...props.profileState.profilePosts].reverse().map((post) => (

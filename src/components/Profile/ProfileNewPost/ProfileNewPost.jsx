@@ -1,39 +1,27 @@
 import React from "react";
 import styles from "./ProfileNewPost.module.scss";
 import classnames from "classnames";
+import { Field, reduxForm } from "redux-form";
 
 const ProfileNewPost = (props) => {
-  const onSendClicked = () => {
-    props.addPost();
-  };
-
-  const newPostInput = React.createRef();
-
-  const onNewPostInputHandler = () => {
-    props.updateNewPostText(newPostInput.current.value);
-  };
-
   return (
-    <div className={classnames(props.className, styles["new-post"])}>
-      <input
-        ref={newPostInput}
-        onChange={onNewPostInputHandler}
+    <form
+      className={classnames(props.className, styles["new-post"])}
+      onSubmit={props.handleSubmit}
+    >
+      <Field
+        component="input"
         className={classnames(styles["new-post__input"])}
         type="text"
-        name="post text"
+        name="postText"
         placeholder="What's in your mind?"
-        value={props.newPostText}
       />
 
-      <button
-        type="button"
-        className={classnames(styles["new-post__submit"])}
-        onClick={onSendClicked}
-      >
+      <button type="submit" className={classnames(styles["new-post__submit"])}>
         Send
       </button>
-    </div>
+    </form>
   );
 };
 
-export default ProfileNewPost;
+export default reduxForm({ form: "newPostForm" })(ProfileNewPost);

@@ -2,7 +2,6 @@ import { profileAPI } from "../api/api";
 import avatar from "./../images/avatar.jpg";
 
 const ADD_POST = "ADD POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE NEW POST TEXT";
 const SET_PROFILE = "SET PROFILE";
 const CLEAR_PROFILE = "CLEAR PROFILE";
 const TOGGLE_LOADING = "TOGGLE LOADING";
@@ -29,16 +28,14 @@ const initialState = {
       datetime: "49 minutes ago",
     },
   ],
-
-  newPostText: "",
 };
 
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
       const post = {
-        id: 3,
-        text: state.newPostText,
+        id: state.profilePosts.length + 1,
+        text: action.postText,
         avatar: avatar,
         fullName: "Daniil Yandybaev",
         datetime: "12 minutes ago",
@@ -47,13 +44,6 @@ const profileReducer = (state = initialState, action) => {
       return {
         ...state,
         profilePosts: [...state.profilePosts, post],
-        newPostText: "",
-      };
-
-    case UPDATE_NEW_POST_TEXT:
-      return {
-        ...state,
-        newPostText: action.newText,
       };
 
     case SET_PROFILE:
@@ -73,13 +63,9 @@ const profileReducer = (state = initialState, action) => {
   }
 };
 
-export const addPost = () => ({
+export const addPost = (postText) => ({
   type: ADD_POST,
-});
-
-export const updateNewPostText = (newText) => ({
-  type: UPDATE_NEW_POST_TEXT,
-  newText,
+  postText,
 });
 
 export const setProfile = (profile) => ({

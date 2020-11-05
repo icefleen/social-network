@@ -5,9 +5,13 @@ import "./Authorization.scss";
 import LoginForm from "./LoginForm/LoginForm";
 
 const Authorization = (props) => {
+  const onLoginSubmit = (formData) => {
+    console.log(formData);
+  };
+
   return (
     <div className="wrapper">
-      <LoginForm />
+      <LoginForm onSubmit={onLoginSubmit} />
     </div>
   );
 };
