@@ -36,4 +36,8 @@
   &[data-from="me"] &__info {
     background-color: $lighter;
   }
+
+  &__text {
+    word-break: break-all;
+  }
 }
