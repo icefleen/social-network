@@ -16,7 +16,7 @@ import { compose } from "redux";
 
 class ProfileAPI extends React.Component {
   loadProfile = () => {
-    const userId = this.props.match.params.id || 1;
+    const userId = this.props.match.params.id || this.props.userId;
 
     this.props.getProfile(userId);
   };
@@ -49,6 +49,7 @@ class ProfileAPI extends React.Component {
 
 const mapStateToProps = (state) => ({
   profileState: state.profileState,
+  userId: state.auth.userId,
 });
 
 export default compose(

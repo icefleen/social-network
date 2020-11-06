@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import { connect } from "react-redux";
-import { setUserData, getUserData } from "../../redux/authReducer";
+import { getUserData } from "../../redux/authReducer";
 
 class NavbarAPI extends React.Component {
   componentDidMount = () => {
@@ -13,11 +13,4 @@ class NavbarAPI extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  auth: state.auth,
-  ownProps,
-});
-
-export default connect(mapStateToProps, { setUserData, getUserData })(
-  NavbarAPI
-);
+export default connect(null, { getUserData })(NavbarAPI);

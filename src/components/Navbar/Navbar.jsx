@@ -8,7 +8,7 @@ const Navbar = (props) => {
     <nav className={classnames(props.className, styles.nav)}>
       <div className="nav__item">
         <NavLink
-          to={`/profile/${props.auth.userId}`}
+          to="/profile/"
           className={classnames(styles.nav__link)}
         >
           Profile

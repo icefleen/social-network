@@ -1,14 +1,13 @@
 import { authAPI } from "../api/api";
 
 const SET_USER_DATA = "SET USER DATA";
-const TOGGLE_IS_LOGGED = "TOGGLE IS LOGGED";
 
 const initialState = {
   userId: null,
   email: null,
   login: null,
   isFetching: false,
-  isLogged: true,
+  isLogged: false,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -19,36 +18,42 @@ const authReducer = (state = initialState, action) => {
         ...action.data,
       };
 
-    case TOGGLE_IS_LOGGED:
-      return {
-        ...state,
-        isLogged: action.isLogged,
-      };
-
     default:
       return state;
   }
 };
 
-export const setUserData = (userId, email, login) => ({
+export const setUserData = (userId, email, login, isLogged) => ({
   type: SET_USER_DATA,
   data: {
     userId,
     email,
     login,
+    isLogged,
   },
-});
-
-export const toggleIsLogged = (isLogged) => ({
-  type: TOGGLE_IS_LOGGED,
-  isLogged,
 });
 
 export const getUserData = () => (dispatch) => {
   authAPI.getUserData().then((data) => {
     if (data.success) {
       const { userId, email, login } = data.userInfo;
-      dispatch(setUserData(userId, email, login));
+      dispatch(setUserData(userId, email, login, true));
+    }
+  });
+};
+
+export const login = (login, password, remember) => (dispatch) => {
+  authAPI.login(login, password, remember).then((data) => {
+    if (data.success) {
+      dispatch(getUserData());
+    }
+  });
+};
+
+export const logout = () => (dispatch) => {
+  authAPI.logout().then((data) => {
+    if (data.success) {
+      dispatch(setUserData(null, null, null, false));
     }
   });
 };

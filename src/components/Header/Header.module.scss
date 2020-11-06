@@ -7,9 +7,18 @@
 
   &__wrapper {
     padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__brand {
     font-size: 14px;
+  }
+
+  &__userActions {
+    span {
+      cursor: pointer;
+    }
   }
 }
