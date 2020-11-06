@@ -7,7 +7,7 @@ import ProfileHeader from "./ProfileHeader/ProfileHeader";
 import ProfileFriends from "./ProfileFriends/ProfileFriends";
 import ProfilePost from "./ProfilePost/ProfilePost";
 import ProfileNewPost from "./ProfileNewPost/ProfileNewPost";
-import Spinner from "../Spinner/Spinner";
+import Spinner from "../common/Spinner/Spinner";
 
 const Profile = (props) => {
   const onSendClicked = (formData) => {
