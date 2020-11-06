@@ -10,7 +10,6 @@ import NewMessage from "./NewMessage/NewMessage";
 const Messenger = (props) => {
   const onSendClicked = (formData) => {
     props.addMessage(formData.messageText);
-    debugger;
     props.reset("newMessageForm");
   };
 
