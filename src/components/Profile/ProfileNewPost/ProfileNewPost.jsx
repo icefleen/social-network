@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./ProfileNewPost.module.scss";
 import classnames from "classnames";
 import { Field, reduxForm } from "redux-form";
+import { required, maxLength300 } from "../../../utils/validators/validators";
+import { Input } from "../../common/FormControls/FormControls";
 
 const ProfileNewPost = (props) => {
   return (
@@ -10,11 +12,13 @@ const ProfileNewPost = (props) => {
       onSubmit={props.handleSubmit}
     >
       <Field
-        component="input"
+        component={Input}
+        validate={[required, maxLength300]}
         className={classnames(styles["new-post__input"])}
         type="text"
         name="postText"
         placeholder="What's in your mind?"
+        isErrorPosVertical={true}
       />
 
       <button type="submit" className={classnames(styles["new-post__submit"])}>

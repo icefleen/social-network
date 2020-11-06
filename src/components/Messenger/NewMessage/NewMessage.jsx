@@ -3,6 +3,8 @@ import styles from "./NewMessage.module.scss";
 import classnames from "classnames";
 
 import { Field, reduxForm } from "redux-form";
+import { Input } from "../../common/FormControls/FormControls";
+import { required } from "../../../utils/validators/validators";
 
 const NewMessage = (props) => {
   return (
@@ -11,11 +13,13 @@ const NewMessage = (props) => {
       onSubmit={props.handleSubmit}
     >
       <Field
-        component="input"
+        component={Input}
+        validate={[required]}
         className={classnames(styles["new-message__input"])}
         type="text"
         name="messageText"
         placeholder="Write a message..."
+        isErrorPosVertical={true}
       />
 
       <button

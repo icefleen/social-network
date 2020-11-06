@@ -1,0 +1,53 @@
+@import "../../../global-styles/main.scss";
+
+.wrapper {
+  flex-grow: 1;
+}
+
+.input {
+  width: 100%;
+}
+
+.errorWrapper {
+  position: absolute;
+  height: 0;
+  pointer-events: none;
+
+  &_hidden {
+    display: none;
+  }
+}
+
+.errorMessage {
+  position: relative;
+  background-color: $info;
+  color: $white;
+  padding: 5px 10px;
+  border-radius: 3px;
+
+  &::after {
+    content: "";
+    border: 10px solid transparent;
+    position: absolute;
+  }
+
+  &_top {
+    top: -70px;
+
+    &::after {
+      border-top-color: $info;
+      margin-top: 25px;
+      margin-left: -50%;
+    }
+  }
+
+  &_left {
+    top: -32px;
+    left: -105%;
+
+    &::after {
+      border-left-color: $info;
+      margin-left: 5px
+    }
+  }
+}
