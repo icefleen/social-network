@@ -12,6 +12,7 @@ import Spinner from "../common/Spinner/Spinner";
 const Profile = (props) => {
   const onSendClicked = (formData) => {
     props.addPost(formData.postText);
+    props.reset("newPostForm");
   };
 
   return (

@@ -2,6 +2,7 @@ import React from "react";
 import Profile from "./Profile";
 
 import { connect } from "react-redux";
+import { reset } from "redux-form";
 
 import {
   clearProfile,
@@ -40,6 +41,7 @@ class ProfileAPI extends React.Component {
         profileState={this.props.profileState}
         updateStatus={this.props.updateStatus}
         addPost={this.props.addPost}
+        reset={this.props.reset}
       />
     );
   }
@@ -55,6 +57,7 @@ export default compose(
     getProfile,
     updateStatus,
     addPost,
+    reset,
   }),
   withRouter,
   withAuthRedirect
