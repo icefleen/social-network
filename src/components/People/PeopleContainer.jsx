@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import People from "./People";
 
 import { connect } from "react-redux";
@@ -17,40 +17,23 @@ import {
   getPeople,
 } from "../../store/selectors/peopleSelectors";
 
-class PeopleAPI extends React.Component {
-  componentDidMount = () => {
-    this.loadUsers(0);
-  };
+const PeopleContainer = (props) => {
+  useEffect(() => {
+    props.getUsers(0);
+    return () => props.clearPeople();
+  }, []);
 
-  componentWillUnmount = () => {
-    this.props.clearPeople();
-  };
-
-  loadUsers = (offset) => {
-    this.props.getUsers(offset);
-  };
-
-  follow = (userId) => {
-    this.props.follow(userId);
-  };
-
-  unFollow = (userId) => {
-    this.props.unFollow(userId);
-  };
-
-  render = () => {
-    return (
-      <People
-        people={this.props.people}
-        followingInProgress={this.props.followingInProgress}
-        isFetching={this.props.isFetching}
-        loadUsers={this.loadUsers}
-        follow={this.follow}
-        unFollow={this.unFollow}
-      />
-    );
-  };
-}
+  return (
+    <People
+      people={props.people}
+      followingInProgress={props.followingInProgress}
+      isFetching={props.isFetching}
+      getUsers={props.getUsers}
+      follow={props.follow}
+      unFollow={props.unFollow}
+    />
+  );
+};
 
 const mapStateToProps = (state) => ({
   people: getPeople(state),
@@ -67,4 +50,4 @@ export default compose(
     getUsers,
   }),
   withAuthRedirect
-)(PeopleAPI);
+)(PeopleContainer);

@@ -69,7 +69,7 @@ const People = (props) => {
       <button
         type="button"
         className={classnames(styles.people__loadButton, styles.loadButton)}
-        onClick={() => props.loadUsers(props.people.length)}
+        onClick={() => props.getUsers(props.people.length)}
       >
         Load More
       </button>
