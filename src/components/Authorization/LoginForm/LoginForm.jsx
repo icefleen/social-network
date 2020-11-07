@@ -12,6 +12,9 @@ const LoginForm = (props) => {
       className={classnames(styles.loginForm)}
       onSubmit={props.handleSubmit}
     >
+      {props.error && (
+        <span className={classnames(styles.errorMessage)}>{props.error}</span>
+      )}
       <Field
         component={Input}
         validate={[required]}
