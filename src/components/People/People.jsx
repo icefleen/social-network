@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./People.module.scss";
 import classnames from "classnames";
-import Spinner from "./../common/Spinner/Spinner";
+import Spinner from "../common/Spinner/Spinner";
 
-import defaultAvatar from "./../../images/default-avatar.png";
+import defaultAvatar from "../../images/default-avatar.png";
 
 import { NavLink } from "react-router-dom";
 
