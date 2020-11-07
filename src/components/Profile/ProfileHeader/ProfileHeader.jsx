@@ -11,16 +11,16 @@ const ProfileHeader = (props) => {
       <div className={classnames(styles.profile__wrapper)}>
         <div className={classnames(styles.profile__about)}>
           <div className={classnames(styles.profile__avatar)}>
-            <img
-              src={props.avatar || defaultAvatar}
-              alt="avatar"
-            />
+            <img src={props.avatar || defaultAvatar} alt="avatar" />
           </div>
           <h3 className={classnames(styles.profile__fullName)}>
             {props.fullName}
           </h3>
           <p className={classnames(styles.profile__status)}>
-            <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+            <ProfileStatus
+              status={props.status}
+              updateStatus={props.updateStatus}
+            />
           </p>
         </div>
       </div>

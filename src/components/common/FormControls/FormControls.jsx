@@ -5,7 +5,11 @@ import classnames from "classnames";
 export const Input = ({ input, meta, isErrorPosVertical, ...props }) => {
   return (
     <div className={classnames(styles.wrapper)}>
-      <input {...input} {...props} className={classnames(props.className, styles.input)} />
+      <input
+        {...input}
+        {...props}
+        className={classnames(props.className, styles.input)}
+      />
       <div
         className={classnames(
           styles.errorWrapper,
