@@ -3,6 +3,7 @@ import styles from "./Header.module.scss";
 import classnames from "classnames";
 import { connect } from "react-redux";
 import { logout } from "../../redux/authReducer";
+import { getIsLogged } from "../../redux/selectors/authSelectors";
 
 const Header = (props) => {
   return (
@@ -12,7 +13,7 @@ const Header = (props) => {
           <h1>Social Network</h1>
         </div>
         <div className={classnames(styles.header__userActions)}>
-          {props.userInfo.isLogged && (
+          {props.isLogged && (
             <>
               <span href="#" onClick={() => props.logout()}>
                 Logout
@@ -26,7 +27,7 @@ const Header = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  userInfo: state.auth,
+  isLogged: getIsLogged(state),
 });
 
 export default connect(mapStateToProps, { logout })(Header);

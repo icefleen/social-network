@@ -15,6 +15,7 @@ import Authorization from "./components/Authorization/Authorization";
 import { connect } from "react-redux";
 import { initializeApp } from "./redux/appReducer";
 import Spinner from "./components/common/Spinner/Spinner";
+import { getInitialized } from "./redux/selectors/appSelectors";
 
 class App extends React.Component {
   componentDidMount = () => {
@@ -44,7 +45,7 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  initialized: state.app.initialized,
+  initialized: getInitialized(state),
 });
 
 export default connect(mapStateToProps, { initializeApp })(App);

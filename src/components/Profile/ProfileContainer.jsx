@@ -13,6 +13,15 @@ import {
 import { withRouter } from "react-router-dom";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
+import {
+  getAvatar,
+  getFriends,
+  getFullName,
+  getIsLoading,
+  getProfilePosts,
+  getStatus,
+} from "../../redux/selectors/profileSelectors";
+import { getUserId } from "../../redux/selectors/authSelectors";
 
 class ProfileAPI extends React.Component {
   loadProfile = () => {
@@ -38,7 +47,12 @@ class ProfileAPI extends React.Component {
   render() {
     return (
       <Profile
-        profileState={this.props.profileState}
+        isLoading={this.props.isLoading}
+        avatar={this.props.avatar}
+        fullName={this.props.fullName}
+        status={this.props.status}
+        friends={this.props.friends}
+        profilePosts={this.props.profilePosts}
         updateStatus={this.props.updateStatus}
         addPost={this.props.addPost}
         reset={this.props.reset}
@@ -48,8 +62,13 @@ class ProfileAPI extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  profileState: state.profileState,
-  userId: state.auth.userId,
+  isLoading: getIsLoading(state),
+  avatar: getAvatar(state),
+  fullName: getFullName(state),
+  status: getStatus(state),
+  friends: getFriends(state),
+  profilePosts: getProfilePosts(state),
+  userId: getUserId(state),
 });
 
 export default compose(

@@ -10,7 +10,7 @@ const TOGGLE_FOLLOWING = "TOGGLE FOLLOWING";
 const initialState = {
   people: [],
   isFetching: false,
-  followingProgress: [],
+  followingInProgress: [],
 };
 
 const peopleReducer = (state = initialState, action) => {
@@ -57,9 +57,9 @@ const peopleReducer = (state = initialState, action) => {
     case TOGGLE_FOLLOWING:
       return {
         ...state,
-        followingProgress: action.isFollowing
-          ? [...state.followingProgress, action.userId]
-          : state.followingProgress.filter((id) => id !== action.userId),
+        followingInProgress: action.isFollowing
+          ? [...state.followingInProgress, action.userId]
+          : state.followingInProgress.filter((id) => id !== action.userId),
       };
 
     default:

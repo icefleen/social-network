@@ -7,9 +7,14 @@ import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
 
 import { reset } from "redux-form";
+import {
+  getDialogs,
+  getMessages,
+} from "../../redux/selectors/messengerSelectors";
 
 const mapStateToProps = (state) => ({
-  messengerState: state.messengerState,
+  dialogs: getDialogs(state),
+  messages: getMessages(state),
 });
 
 export default compose(

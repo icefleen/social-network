@@ -5,6 +5,7 @@ import LoginForm from "./LoginForm/LoginForm";
 import { connect } from "react-redux";
 import { login } from "../../redux/authReducer";
 import { Redirect } from "react-router-dom";
+import { getIsLogged } from "../../redux/selectors/authSelectors";
 
 const Authorization = (props) => {
   const onLoginSubmit = (formData) => {
@@ -23,7 +24,7 @@ const Authorization = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  isLogged: state.auth.isLogged,
+  isLogged: getIsLogged(state),
 });
 
 export default connect(mapStateToProps, { login })(Authorization);

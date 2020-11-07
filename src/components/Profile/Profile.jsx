@@ -17,11 +17,13 @@ const Profile = (props) => {
 
   return (
     <>
-      {props.profileState.isLoading && <Spinner />}
-      {props.profileState.isLoading || (
+      {props.isLoading && <Spinner />}
+      {props.isLoading || (
         <section className={classnames(styles.profile)}>
           <ProfileHeader
-            profileState={props.profileState}
+            avatar={props.avatar}
+            fullName={props.fullName}
+            status={props.status}
             updateStatus={props.updateStatus}
           />
           <div className={classnames(styles.profile__columns)}>
@@ -32,7 +34,7 @@ const Profile = (props) => {
                   styles.profile__friends,
                   styles.profile__block
                 )}
-                friends={props.profileState.friends}
+                friends={props.friends}
               />
             </div>
             <div className={classnames(styles.profile__right)}>
@@ -41,7 +43,7 @@ const Profile = (props) => {
                 className={classnames(styles.profile__block)}
               />
               <div className={classnames(styles.posts)}>
-                {[...props.profileState.profilePosts].reverse().map((post) => (
+                {[...props.profilePosts].reverse().map((post) => (
                   <ProfilePost
                     className={classnames(styles.profile__block)}
                     key={post.id}

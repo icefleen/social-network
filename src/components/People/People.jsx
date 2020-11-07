@@ -11,7 +11,7 @@ const People = (props) => {
   return (
     <div className={classnames(styles.people)}>
       <div className={classnames(styles.people__wrapper)}>
-        {props.peopleState.people.map((user) => {
+        {props.people.map((user) => {
           return (
             <div key={user.id} className={classnames(styles.user)}>
               <NavLink
@@ -32,7 +32,7 @@ const People = (props) => {
                 </div>
                 {user.followed ? (
                   <button
-                    disabled={props.peopleState.followingProgress.includes(
+                    disabled={props.followingInProgress.includes(
                       user.id
                     )}
                     type="button"
@@ -50,7 +50,7 @@ const People = (props) => {
                 ) : (
                   <button
                     type="button"
-                    disabled={props.peopleState.followingProgress.includes(
+                    disabled={props.followingInProgress.includes(
                       user.id
                     )}
                     onClick={() => {
@@ -69,11 +69,11 @@ const People = (props) => {
           );
         })}
       </div>
-      {props.peopleState.isFetching && <Spinner />}
+      {props.isFetching && <Spinner />}
       <button
         type="button"
         className={classnames(styles.people__loadButton, styles.loadButton)}
-        onClick={() => props.loadUsers(props.peopleState.people.length)}
+        onClick={() => props.loadUsers(props.people.length)}
       >
         Load More
       </button>

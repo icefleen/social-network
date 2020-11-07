@@ -11,6 +11,11 @@ import {
 } from "../../redux/peopleReducer";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+import {
+  getfollowingInProgress,
+  getIsFetching,
+  getPeople,
+} from "../../redux/selectors/peopleSelectors";
 
 class PeopleAPI extends React.Component {
   componentDidMount = () => {
@@ -36,8 +41,9 @@ class PeopleAPI extends React.Component {
   render = () => {
     return (
       <People
-        className={this.props.className}
-        peopleState={this.props.peopleState}
+        people={this.props.people}
+        followingInProgress={this.props.followingInProgress}
+        isFetching={this.props.isFetching}
         loadUsers={this.loadUsers}
         follow={this.follow}
         unFollow={this.unFollow}
@@ -47,7 +53,9 @@ class PeopleAPI extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  peopleState: state.peopleState,
+  people: getPeople(state),
+  followingInProgress: getfollowingInProgress(state),
+  isFetching: getIsFetching(state),
 });
 
 export default compose(

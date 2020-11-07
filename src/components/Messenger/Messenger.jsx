@@ -16,7 +16,7 @@ const Messenger = (props) => {
   return (
     <section className={classnames(styles.messenger)}>
       <div className={classnames(styles.messenger__dialogs, styles.dialogs)}>
-        {props.messengerState.dialogs.map((dialog) => (
+        {props.dialogs.map((dialog) => (
           <NavLink to={`/messenger/${dialog.id}`} key={dialog.id}>
             <MessengerDialog
               classname={classnames(styles.messenger__dialog)}
@@ -29,7 +29,7 @@ const Messenger = (props) => {
       </div>
       <div className={classnames(styles.messenger__messages, styles.messages)}>
         <div className={classnames(styles.messages__content)}>
-          {props.messengerState.messages.map((message) => (
+          {props.messages.map((message) => (
             <MessengerMessage
               classname={classnames(styles.messenger__message)}
               key={message.id}
