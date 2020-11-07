@@ -11,7 +11,7 @@ const initialState = {
   isLoading: false,
   status: "",
   friends: [],
-  profilePosts: [
+  posts: [
     {
       id: 1,
       text:
@@ -34,7 +34,7 @@ const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
       const post = {
-        id: state.profilePosts.length + 1,
+        id: state.posts.length + 1,
         text: action.postText,
         avatar: avatar,
         fullName: "Daniil Yandybaev",
@@ -43,7 +43,7 @@ const profileReducer = (state = initialState, action) => {
 
       return {
         ...state,
-        profilePosts: [...state.profilePosts, post],
+        posts: [...state.posts, post],
       };
 
     case SET_PROFILE:

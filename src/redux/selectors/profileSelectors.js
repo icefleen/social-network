@@ -8,4 +8,4 @@ export const getStatus = (state) => state.profileState.status;
 
 export const getFriends = (state) => state.profileState.friends;
 
-export const getProfilePosts = (state) => state.profileState.profilePosts;
+export const getPosts = (state) => state.profileState.posts;

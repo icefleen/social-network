@@ -18,7 +18,7 @@ import {
   getFriends,
   getFullName,
   getIsLoading,
-  getProfilePosts,
+  getPosts,
   getStatus,
 } from "../../redux/selectors/profileSelectors";
 import { getUserId } from "../../redux/selectors/authSelectors";
@@ -52,7 +52,7 @@ class ProfileAPI extends React.Component {
         fullName={this.props.fullName}
         status={this.props.status}
         friends={this.props.friends}
-        profilePosts={this.props.profilePosts}
+        posts={this.props.posts}
         updateStatus={this.props.updateStatus}
         addPost={this.props.addPost}
         reset={this.props.reset}
@@ -67,7 +67,7 @@ const mapStateToProps = (state) => ({
   fullName: getFullName(state),
   status: getStatus(state),
   friends: getFriends(state),
-  profilePosts: getProfilePosts(state),
+  posts: getPosts(state),
   userId: getUserId(state),
 });
 

@@ -43,7 +43,7 @@ const Profile = (props) => {
                 className={classnames(styles.profile__block)}
               />
               <div className={classnames(styles.posts)}>
-                {[...props.profilePosts].reverse().map((post) => (
+                {[...props.posts].reverse().map((post) => (
                   <ProfilePost
                     className={classnames(styles.profile__block)}
                     key={post.id}
