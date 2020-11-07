@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./App.module.scss";
 import classnames from "classnames";
 
@@ -17,32 +17,33 @@ import { initializeApp } from "./store/reducers/appReducer";
 import Spinner from "./components/common/Spinner/Spinner";
 import { getInitialized } from "./store/selectors/appSelectors";
 
-class App extends React.Component {
-  componentDidMount = () => {
-    this.props.initializeApp();
-  };
+const App = (props) => {
+  useEffect(() => props.initializeApp(), [props]);
 
-  render() {
-    if (!this.props.initialized) return <Spinner />;
-    return (
-      <BrowserRouter>
-        <Header />
-        <main className={classnames(styles.main)}>
-          <div className={classnames(styles.main__wrapper, styles.container)}>
-            <Navbar className={classnames(styles.main__nav)} />
-            <Route path="/auth" render={() => <Authorization />} />
-            <Route path="/profile/:id?" render={() => <ProfileContainer />} />
-            <Route path="/messenger" render={() => <MessengerContainer />} />
-            <Route path="/people" render={() => <PeopleContainer />} />
-            <Route path="/news" render={() => <News />} />
-            <Route path="/music" render={() => <Music />} />
-            <Route path="/settings" render={() => <Settings />} />
-          </div>
-        </main>
-      </BrowserRouter>
-    );
-  }
-}
+  return (
+    <>
+      {!props.initialized ? (
+        <Spinner />
+      ) : (
+        <BrowserRouter>
+          <Header />
+          <main className={classnames(styles.main)}>
+            <div className={classnames(styles.main__wrapper, styles.container)}>
+              <Navbar className={classnames(styles.main__nav)} />
+              <Route path="/auth" render={() => <Authorization />} />
+              <Route path="/profile/:id?" render={() => <ProfileContainer />} />
+              <Route path="/messenger" render={() => <MessengerContainer />} />
+              <Route path="/people" render={() => <PeopleContainer />} />
+              <Route path="/news" render={() => <News />} />
+              <Route path="/music" render={() => <Music />} />
+              <Route path="/settings" render={() => <Settings />} />
+            </div>
+          </main>
+        </BrowserRouter>
+      )}
+    </>
+  );
+};
 
 const mapStateToProps = (state) => ({
   initialized: getInitialized(state),
