@@ -9,7 +9,7 @@ import {
   getProfile,
   updateStatus,
   addPost,
-} from "../../redux/profileReducer";
+} from "../../store/reducers/profileReducer";
 import { withRouter } from "react-router-dom";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
@@ -20,8 +20,8 @@ import {
   getIsLoading,
   getPostsReversed,
   getStatus,
-} from "../../redux/selectors/profileSelectors";
-import { getUserId } from "../../redux/selectors/authSelectors";
+} from "../../store/selectors/profileSelectors";
+import { getUserId } from "../../store/selectors/authSelectors";
 
 class ProfileAPI extends React.Component {
   loadProfile = () => {

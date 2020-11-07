@@ -2,8 +2,8 @@ import React from "react";
 import styles from "./Header.module.scss";
 import classnames from "classnames";
 import { connect } from "react-redux";
-import { logout } from "../../redux/authReducer";
-import { getIsLogged } from "../../redux/selectors/authSelectors";
+import { logout } from "../../store/reducers/authReducer";
+import { getIsLogged } from "../../store/selectors/authSelectors";
 
 const Header = (props) => {
   return (

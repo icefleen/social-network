@@ -1,10 +1,10 @@
-import avatar from "./../images/avatar.jpg";
-import emmaAvatar from "./../images/emma-avatar.jpg";
-import paulAvatar from "./../images/paul-avatar.jpg";
-import elenaAvatar from "./../images/elena-avatar.jpg";
-import katrinAvatar from "./../images/katrin-avatar.jpg";
-import steveAvatar from "./../images/steve-avatar.jpg";
-import alexAvatar from "./../images/alex-avatar.jpg";
+import avatar from "../../images/avatar.jpg";
+import emmaAvatar from "../../images/emma-avatar.jpg";
+import paulAvatar from "../../images/paul-avatar.jpg";
+import elenaAvatar from "../../images/elena-avatar.jpg";
+import katrinAvatar from "../../images/katrin-avatar.jpg";
+import steveAvatar from "../../images/steve-avatar.jpg";
+import alexAvatar from "../../images/alex-avatar.jpg";
 
 const ADD_MESSAGE = "ADD MESSAGE";
 

@@ -1,6 +1,6 @@
 import Messenger from "./Messenger";
 
-import { addMessage } from "../../redux/messengerReducer";
+import { addMessage } from "../../store/reducers/messengerReducer";
 
 import { connect } from "react-redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
@@ -10,7 +10,7 @@ import { reset } from "redux-form";
 import {
   getDialogs,
   getMessages,
-} from "../../redux/selectors/messengerSelectors";
+} from "../../store/selectors/messengerSelectors";
 
 const mapStateToProps = (state) => ({
   dialogs: getDialogs(state),

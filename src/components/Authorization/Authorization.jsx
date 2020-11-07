@@ -3,9 +3,9 @@ import "./Authorization.scss";
 import LoginForm from "./LoginForm/LoginForm";
 
 import { connect } from "react-redux";
-import { login } from "../../redux/authReducer";
+import { login } from "../../store/reducers/authReducer";
 import { Redirect } from "react-router-dom";
-import { getIsLogged } from "../../redux/selectors/authSelectors";
+import { getIsLogged } from "../../store/selectors/authSelectors";
 
 const Authorization = (props) => {
   const onLoginSubmit = (formData) => {

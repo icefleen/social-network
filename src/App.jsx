@@ -13,9 +13,9 @@ import Settings from "./components/Settings/Settings";
 import PeopleContainer from "./components/People/PeopleContainer";
 import Authorization from "./components/Authorization/Authorization";
 import { connect } from "react-redux";
-import { initializeApp } from "./redux/appReducer";
+import { initializeApp } from "./store/reducers/appReducer";
 import Spinner from "./components/common/Spinner/Spinner";
-import { getInitialized } from "./redux/selectors/appSelectors";
+import { getInitialized } from "./store/selectors/appSelectors";
 
 class App extends React.Component {
   componentDidMount = () => {

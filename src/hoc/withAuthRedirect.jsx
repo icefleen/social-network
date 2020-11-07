@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { getIsLogged } from "../redux/selectors/authSelectors";
+import { getIsLogged } from "../store/selectors/authSelectors";
 
 const mapStateToProps = (state) => ({
   isLogged: getIsLogged(state),

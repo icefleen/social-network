@@ -8,14 +8,14 @@ import {
   getUsers,
   follow,
   unFollow,
-} from "../../redux/peopleReducer";
+} from "../../store/reducers/peopleReducer";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import {
   getfollowingInProgress,
   getIsFetching,
   getPeople,
-} from "../../redux/selectors/peopleSelectors";
+} from "../../store/selectors/peopleSelectors";
 
 class PeopleAPI extends React.Component {
   componentDidMount = () => {

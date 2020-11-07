@@ -1,5 +1,5 @@
-import { profileAPI } from "../api/api";
-import avatar from "./../images/avatar.jpg";
+import { profileAPI } from "../../api/api";
+import avatar from "../../images/avatar.jpg";
 
 const ADD_POST = "ADD POST";
 const SET_PROFILE = "SET PROFILE";
