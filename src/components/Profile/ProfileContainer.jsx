@@ -18,7 +18,7 @@ import {
   getFriends,
   getFullName,
   getIsLoading,
-  getPosts,
+  getPostsReversed,
   getStatus,
 } from "../../redux/selectors/profileSelectors";
 import { getUserId } from "../../redux/selectors/authSelectors";
@@ -67,7 +67,7 @@ const mapStateToProps = (state) => ({
   fullName: getFullName(state),
   status: getStatus(state),
   friends: getFriends(state),
-  posts: getPosts(state),
+  posts: getPostsReversed(state),
   userId: getUserId(state),
 });
 

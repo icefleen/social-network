@@ -1,3 +1,5 @@
+import { createSelector } from "reselect";
+
 export const getIsLoading = (state) => state.profileState.isLoading;
 
 export const getAvatar = (state) => state.profileState.avatar;
@@ -8,4 +10,8 @@ export const getStatus = (state) => state.profileState.status;
 
 export const getFriends = (state) => state.profileState.friends;
 
-export const getPosts = (state) => state.profileState.posts;
+const getPosts = (state) => state.profileState.posts;
+
+export const getPostsReversed = createSelector(getPosts, (posts) =>
+  [...posts].reverse()
+);
