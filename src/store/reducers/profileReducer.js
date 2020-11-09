@@ -1,11 +1,11 @@
 import { profileAPI } from "../../api/api";
 import avatar from "../../images/avatar.jpg";
 
-const ADD_POST = "ADD POST";
-const SET_PROFILE = "SET PROFILE";
-const CLEAR_PROFILE = "CLEAR PROFILE";
-const TOGGLE_LOADING = "TOGGLE LOADING";
-const SET_STATUS = "SET STATUS";
+const ADD_POST = "profile/ADD_POST";
+const SET_PROFILE = "profile/SET_PROFILE";
+const CLEAR_PROFILE = "profile/CLEAR_PROFILE";
+const TOGGLE_LOADING = "profile/TOGGLE_LOADING";
+const SET_STATUS = "profile/SET_STATUS";
 
 const initialState = {
   isLoading: false,

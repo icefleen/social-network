@@ -1,11 +1,11 @@
 import { usersAPI } from "../../api/api";
 
-const FOLLOW = "FOLLOW";
-const UNFOLLOW = "UNFOLLOW";
-const APPEND_PEOPLE = "APPEND PEOPLE";
-const CLEAR_PEOPLE = "CLEAR PEOPLE";
-const TOGGLE_FETCHING = "TOGGLE FETCHING";
-const TOGGLE_FOLLOWING = "TOGGLE FOLLOWING";
+const FOLLOW = "people/FOLLOW";
+const UNFOLLOW = "people/UNFOLLOW";
+const APPEND_PEOPLE = "people/APPEND_PEOPLE";
+const CLEAR_PEOPLE = "people/CLEAR_PEOPLE";
+const TOGGLE_FETCHING = "people/TOGGLE_FETCHING";
+const TOGGLE_FOLLOWING = "people/TOGGLE_FOLLOWING";
 
 const initialState = {
   people: [],
