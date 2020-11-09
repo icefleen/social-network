@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Profile from "./Profile";
 import { connect } from "react-redux";
 import { reset } from "redux-form";
@@ -21,43 +21,43 @@ import {
 } from "../../store/selectors/profileSelectors";
 import { getUserId } from "../../store/selectors/authSelectors";
 
-class ProfileAPI extends React.Component {
-  loadProfile = () => {
-    const userId = this.props.match.params.id || this.props.userId;
+const ProfileContainer = ({
+  match,
+  userId,
+  getProfile,
+  clearProfile,
+  isLoading,
+  avatar,
+  fullName,
+  status,
+  friends,
+  posts,
+  updateStatus,
+  addPost,
+  reset,
+}) => {
+  const userIdFromAddress = match.params.id;
 
-    this.props.getProfile(userId);
-  };
+  useEffect(() => {
+    const profileIdToLoad = userIdFromAddress || userId;
+    getProfile(profileIdToLoad);
+    return () => clearProfile();
+  }, [getProfile, match, userId, clearProfile, userIdFromAddress]);
 
-  componentDidMount = () => {
-    this.loadProfile();
-  };
-
-  componentDidUpdate = (prevProps) => {
-    if (prevProps.match.params.id !== this.props.match.params.id) {
-      this.loadProfile();
-    }
-  };
-
-  componentWillUnmount = () => {
-    this.props.clearProfile();
-  };
-
-  render() {
-    return (
-      <Profile
-        isLoading={this.props.isLoading}
-        avatar={this.props.avatar}
-        fullName={this.props.fullName}
-        status={this.props.status}
-        friends={this.props.friends}
-        posts={this.props.posts}
-        updateStatus={this.props.updateStatus}
-        addPost={this.props.addPost}
-        reset={this.props.reset}
-      />
-    );
-  }
-}
+  return (
+    <Profile
+      isLoading={isLoading}
+      avatar={avatar}
+      fullName={fullName}
+      status={status}
+      friends={friends}
+      posts={posts}
+      updateStatus={updateStatus}
+      addPost={addPost}
+      reset={reset}
+    />
+  );
+};
 
 const mapStateToProps = (state) => ({
   isLoading: getIsLoading(state),
@@ -79,4 +79,4 @@ export default compose(
   }),
   withRouter,
   withAuthRedirect
-)(ProfileAPI);
+)(React.memo(ProfileContainer));
