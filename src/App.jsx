@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "./App.module.scss";
 import classnames from "classnames";
-
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import ProfileContainer from "./components/Profile/ProfileContainer";
@@ -17,12 +16,12 @@ import { initializeApp } from "./store/reducers/appReducer";
 import Spinner from "./components/common/Spinner/Spinner";
 import { getInitialized } from "./store/selectors/appSelectors";
 
-const App = (props) => {
-  useEffect(() => props.initializeApp(), [props]);
+const App = ({ initializeApp, initialized }) => {
+  useEffect(() => initializeApp(), [initializeApp]);
 
   return (
     <>
-      {!props.initialized ? (
+      {!initialized ? (
         <Spinner />
       ) : (
         <BrowserRouter>

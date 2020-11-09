@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { logout } from "../../store/reducers/authReducer";
 import { getIsLogged } from "../../store/selectors/authSelectors";
 
-const Header = (props) => {
+const Header = ({ isLogged, logout }) => {
   return (
     <header className={classnames(styles.header)}>
       <div className={classnames(styles.header__wrapper, styles.container)}>
@@ -13,9 +13,9 @@ const Header = (props) => {
           <h1>Social Network</h1>
         </div>
         <div className={classnames(styles.header__userActions)}>
-          {props.isLogged && (
+          {isLogged && (
             <>
-              <span href="#" onClick={() => props.logout()}>
+              <span href="#" onClick={() => logout()}>
                 Logout
               </span>
             </>

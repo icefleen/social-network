@@ -1,9 +1,7 @@
 import React from "react";
 import Profile from "./Profile";
-
 import { connect } from "react-redux";
 import { reset } from "redux-form";
-
 import {
   clearProfile,
   getProfile,

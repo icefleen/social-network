@@ -1,17 +1,13 @@
 import React from "react";
 import styles from "./NewMessage.module.scss";
 import classnames from "classnames";
-
 import { Field, reduxForm } from "redux-form";
 import { Input } from "../../common/FormControls/FormControls";
-import { required } from "../../../utils/validators/validators";
+import { required } from "../../../utils/validators";
 
-const NewMessage = (props) => {
+const NewMessage = ({ handleSubmit }) => {
   return (
-    <form
-      className={classnames(styles["new-message"])}
-      onSubmit={props.handleSubmit}
-    >
+    <form className={classnames(styles["new-message"])} onSubmit={handleSubmit}>
       <Field
         component={Input}
         validate={[required]}

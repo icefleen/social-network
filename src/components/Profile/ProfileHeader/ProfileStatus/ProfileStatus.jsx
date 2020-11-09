@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 
-const ProfileStatus = (props) => {
+const ProfileStatus = ({ initialStatus, updateStatus }) => {
   const [editMode, setEditMode] = useState(false);
-  const [status, setStatus] = useState(props.status);
+  const [status, setStatus] = useState(initialStatus);
 
   useEffect(() => {
-    setStatus(props.status);
-  }, [props.status]);
+    setStatus(initialStatus);
+  }, [initialStatus]);
 
   const activateEditMode = () => setEditMode(true);
 
   const deactivateEditMode = () => {
     setEditMode(false);
-    props.updateStatus(status);
+    updateStatus(status);
   };
 
   const handleStatusChange = (event) => setStatus(event.target.value);
@@ -26,7 +26,7 @@ const ProfileStatus = (props) => {
       onChange={handleStatusChange}
     />
   ) : (
-    <span onClick={activateEditMode}>{props.status || "No status here"}</span>
+    <span onClick={activateEditMode}>{status || "No status here"}</span>
   );
 };
 

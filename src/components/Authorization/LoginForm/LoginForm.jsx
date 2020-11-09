@@ -3,17 +3,17 @@ import styles from "./LoginForm.module.scss";
 import classnames from "classnames";
 import { reduxForm, Field } from "redux-form";
 import { Input } from "../../common/FormControls/FormControls";
-import { required } from "../../../utils/validators/validators";
+import { required } from "../../../utils/validators";
 
-const LoginForm = (props) => {
+const LoginForm = ({ handleSubmit, error }) => {
   return (
     <form
       action=""
       className={classnames(styles.loginForm)}
-      onSubmit={props.handleSubmit}
+      onSubmit={handleSubmit}
     >
-      {props.error && (
-        <span className={classnames(styles.errorMessage)}>{props.error}</span>
+      {error && (
+        <span className={classnames(styles.errorMessage)}>{error}</span>
       )}
       <Field
         component={Input}

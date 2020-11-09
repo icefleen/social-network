@@ -1,22 +1,21 @@
 import React from "react";
 import styles from "./Messenger.module.scss";
 import classnames from "classnames";
-
 import MessengerDialog from "./MessengerDialog/MessengerDialog";
 import MessengerMessage from "./MessengerMessage/MessengerMessage";
 import { NavLink } from "react-router-dom";
 import NewMessage from "./NewMessage/NewMessage";
 
-const Messenger = (props) => {
+const Messenger = ({ addMessage, reset, dialogs, messages }) => {
   const onSendClicked = (formData) => {
-    props.addMessage(formData.messageText);
-    props.reset("newMessageForm");
+    addMessage(formData.messageText);
+    reset("newMessageForm");
   };
 
   return (
     <section className={classnames(styles.messenger)}>
       <div className={classnames(styles.messenger__dialogs, styles.dialogs)}>
-        {props.dialogs.map((dialog) => (
+        {dialogs.map((dialog) => (
           <NavLink to={`/messenger/${dialog.id}`} key={dialog.id}>
             <MessengerDialog
               classname={classnames(styles.messenger__dialog)}
@@ -29,7 +28,7 @@ const Messenger = (props) => {
       </div>
       <div className={classnames(styles.messenger__messages, styles.messages)}>
         <div className={classnames(styles.messages__content)}>
-          {props.messages.map((message) => (
+          {messages.map((message) => (
             <MessengerMessage
               classname={classnames(styles.messenger__message)}
               key={message.id}

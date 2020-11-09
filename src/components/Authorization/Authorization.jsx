@@ -1,18 +1,17 @@
 import React from "react";
 import "./Authorization.scss";
 import LoginForm from "./LoginForm/LoginForm";
-
 import { connect } from "react-redux";
 import { login } from "../../store/reducers/authReducer";
 import { Redirect } from "react-router-dom";
 import { getIsLogged } from "../../store/selectors/authSelectors";
 
-const Authorization = (props) => {
+const Authorization = ({ login, isLogged }) => {
   const onLoginSubmit = (formData) => {
-    props.login(formData.login, formData.password, formData.remember);
+    login(formData.login, formData.password, formData.remember);
   };
 
-  if (props.isLogged) {
+  if (isLogged) {
     return <Redirect to="/profile" />;
   }
 

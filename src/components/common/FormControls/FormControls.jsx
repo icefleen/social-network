@@ -2,13 +2,19 @@ import React from "react";
 import styles from "./FormControls.module.scss";
 import classnames from "classnames";
 
-export const Input = ({ input, meta, isErrorPosVertical, ...props }) => {
+export const Input = ({
+  input,
+  meta,
+  isErrorPosVertical,
+  className,
+  ...props
+}) => {
   return (
     <div className={classnames(styles.wrapper)}>
       <input
         {...input}
         {...props}
-        className={classnames(props.className, styles.input)}
+        className={classnames(className, styles.input)}
       />
       <div
         className={classnames(

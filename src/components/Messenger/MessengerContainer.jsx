@@ -1,11 +1,8 @@
 import Messenger from "./Messenger";
-
 import { addMessage } from "../../store/reducers/messengerReducer";
-
 import { connect } from "react-redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
-
 import { reset } from "redux-form";
 import {
   getDialogs,

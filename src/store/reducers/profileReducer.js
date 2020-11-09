@@ -75,14 +75,14 @@ export const getProfile = (userId) => async (dispatch) => {
   dispatch(toggleLoading(true));
 
   const data = await profileAPI.getProfile(userId);
-  
+
   dispatch(setProfile(data));
   dispatch(toggleLoading(false));
 };
 
 export const updateStatus = (status) => async (dispatch) => {
   const data = await profileAPI.updateStatus(status);
-  
+
   if (data.success) {
     dispatch(setStatus(status));
   }

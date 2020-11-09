@@ -2,9 +2,9 @@ import React from "react";
 import styles from "./ProfileAbout.module.scss";
 import classnames from "classnames";
 
-const ProfileAbout = (props) => {
+const ProfileAbout = ({ className }) => {
   return (
-    <div className={classnames(props.className, styles.about)}>
+    <div className={classnames(className, styles.about)}>
       <h3 className={classnames(styles.about__title)}>About me</h3>
       <ul className={classnames(styles.about__list)}>
         <li className={classnames(styles.about__item)}>

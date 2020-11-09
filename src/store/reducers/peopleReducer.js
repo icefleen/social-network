@@ -1,4 +1,5 @@
 import { usersAPI } from "../../api/api";
+import { updateObjectInArray } from "../../utils/reducerHelpers";
 
 const FOLLOW = "people/FOLLOW";
 const UNFOLLOW = "people/UNFOLLOW";
@@ -18,30 +19,16 @@ const peopleReducer = (state = initialState, action) => {
     case FOLLOW:
       return {
         ...state,
-        people: state.people.map((user) => {
-          if (user.id === action.userId) {
-            return {
-              ...user,
-              followed: true,
-            };
-          }
-
-          return user;
+        people: updateObjectInArray(state.people, "id", action.userId, {
+          followed: true,
         }),
       };
 
     case UNFOLLOW:
       return {
         ...state,
-        people: state.people.map((user) => {
-          if (user.id === action.userId) {
-            return {
-              ...user,
-              followed: false,
-            };
-          }
-
-          return user;
+        people: updateObjectInArray(state.people, "id", action.userId, {
+          followed: false,
         }),
       };
 

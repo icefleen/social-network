@@ -2,18 +2,16 @@ import React from "react";
 import styles from "./MessengerDialog.module.scss";
 import classnames from "classnames";
 
-const MessengerDialog = (props) => {
+const MessengerDialog = ({ className, avatar, fullName, lastMessage }) => {
   return (
-    <div className={classnames(props.className, styles.dialog)}>
+    <div className={classnames(className, styles.dialog)}>
       <div className={classnames(styles.dialog__avatar)}>
-        <img src={props.avatar} alt="avatar" />
+        <img src={avatar} alt="avatar" />
       </div>
       <div className={classnames(styles.dialog__info)}>
-        <div className={classnames(styles.dialog__fullName)}>
-          {props.fullName}
-        </div>
+        <div className={classnames(styles.dialog__fullName)}>{fullName}</div>
         <div className={classnames(styles["dialog__last-message"])}>
-          {props.lastMessage}
+          {lastMessage}
         </div>
       </div>
     </div>

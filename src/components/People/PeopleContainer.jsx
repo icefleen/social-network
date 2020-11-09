@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import People from "./People";
-
 import { connect } from "react-redux";
 import {
   clearPeople,
@@ -17,20 +16,28 @@ import {
   getPeople,
 } from "../../store/selectors/peopleSelectors";
 
-const PeopleContainer = (props) => {
+const PeopleContainer = ({
+  getUsers,
+  people,
+  followingInProgress,
+  isFetching,
+  follow,
+  unFollow,
+  clearPeople,
+}) => {
   useEffect(() => {
-    props.getUsers(0);
-    return () => props.clearPeople();
-  }, []);
+    getUsers(0);
+    return () => clearPeople();
+  }, [getUsers, clearPeople]);
 
   return (
     <People
-      people={props.people}
-      followingInProgress={props.followingInProgress}
-      isFetching={props.isFetching}
-      getUsers={props.getUsers}
-      follow={props.follow}
-      unFollow={props.unFollow}
+      people={people}
+      followingInProgress={followingInProgress}
+      isFetching={isFetching}
+      getUsers={getUsers}
+      follow={follow}
+      unFollow={unFollow}
     />
   );
 };

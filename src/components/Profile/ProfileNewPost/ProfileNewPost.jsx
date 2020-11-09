@@ -2,14 +2,14 @@ import React from "react";
 import styles from "./ProfileNewPost.module.scss";
 import classnames from "classnames";
 import { Field, reduxForm } from "redux-form";
-import { required, maxLength300 } from "../../../utils/validators/validators";
+import { required, maxLength300 } from "../../../utils/validators";
 import { Input } from "../../common/FormControls/FormControls";
 
-const ProfileNewPost = (props) => {
+const ProfileNewPost = ({ className, handleSubmit }) => {
   return (
     <form
-      className={classnames(props.className, styles["new-post"])}
-      onSubmit={props.handleSubmit}
+      className={classnames(className, styles["new-post"])}
+      onSubmit={handleSubmit}
     >
       <Field
         component={Input}

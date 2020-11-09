@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.scss";
 import classnames from "classnames";
 
-const Navbar = (props) => {
+const Navbar = ({ className }) => {
   return (
-    <nav className={classnames(props.className, styles.nav)}>
+    <nav className={classnames(className, styles.nav)}>
       <div className="nav__item">
         <NavLink to="/profile" className={classnames(styles.nav__link)}>
           Profile
