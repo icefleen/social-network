@@ -97,35 +97,35 @@ export const toggleFollowing = (isFollowing, userId) => ({
   userId,
 });
 
-export const getUsers = (offset) => (dispatch) => {
+export const getUsers = (offset) => async (dispatch) => {
   dispatch(toggleFetching(true));
 
-  usersAPI.getUsers(offset, 3).then((data) => {
-    dispatch(toggleFetching(false));
-    dispatch(appendPeople(data.items));
-  });
+  const data = await usersAPI.getUsers(offset, 3);
+
+  dispatch(toggleFetching(false));
+  dispatch(appendPeople(data.items));
 };
 
-export const follow = (userId) => (dispatch) => {
+export const follow = (userId) => async (dispatch) => {
   dispatch(toggleFollowing(true, userId));
 
-  usersAPI.follow(userId).then((data) => {
-    if (data.success) {
-      dispatch(followSuccess(userId));
-      dispatch(toggleFollowing(false, userId));
-    }
-  });
+  const data = await usersAPI.follow(userId);
+
+  if (data.success) {
+    dispatch(followSuccess(userId));
+    dispatch(toggleFollowing(false, userId));
+  }
 };
 
-export const unFollow = (userId) => (dispatch) => {
+export const unFollow = (userId) => async (dispatch) => {
   dispatch(toggleFollowing(true, userId));
 
-  usersAPI.unFollow(userId).then((data) => {
-    if (data.success) {
-      dispatch(unFollowSuccess(userId));
-      dispatch(toggleFollowing(false, userId));
-    }
-  });
+  const data = await usersAPI.unFollow(userId);
+
+  if (data.success) {
+    dispatch(unFollowSuccess(userId));
+    dispatch(toggleFollowing(false, userId));
+  }
 };
 
 export default peopleReducer;

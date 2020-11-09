@@ -71,21 +71,21 @@ export const setStatus = (status) => ({
   status,
 });
 
-export const getProfile = (userId) => (dispatch) => {
+export const getProfile = (userId) => async (dispatch) => {
   dispatch(toggleLoading(true));
 
-  profileAPI.getProfile(userId).then((data) => {
-    dispatch(setProfile(data));
-    dispatch(toggleLoading(false));
-  });
+  const data = await profileAPI.getProfile(userId);
+  
+  dispatch(setProfile(data));
+  dispatch(toggleLoading(false));
 };
 
-export const updateStatus = (status) => (dispatch) => {
-  profileAPI.updateStatus(status).then((data) => {
-    if (data.success) {
-      dispatch(setStatus(status));
-    }
-  });
+export const updateStatus = (status) => async (dispatch) => {
+  const data = await profileAPI.updateStatus(status);
+  
+  if (data.success) {
+    dispatch(setStatus(status));
+  }
 };
 
 export default profileReducer;
