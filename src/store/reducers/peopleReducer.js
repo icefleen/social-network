@@ -106,26 +106,38 @@ export const getUsers = (offset) => async (dispatch) => {
   dispatch(appendPeople(data.items));
 };
 
-export const follow = (userId) => async (dispatch) => {
+const followUnFollowFlow = async (
+  dispatch,
+  userId,
+  apiMethod,
+  actionCreator
+) => {
   dispatch(toggleFollowing(true, userId));
 
-  const data = await usersAPI.follow(userId);
+  const data = await apiMethod(userId);
 
   if (data.success) {
-    dispatch(followSuccess(userId));
+    dispatch(actionCreator(userId));
     dispatch(toggleFollowing(false, userId));
   }
 };
 
-export const unFollow = (userId) => async (dispatch) => {
-  dispatch(toggleFollowing(true, userId));
+export const follow = (userId) => (dispatch) => {
+  followUnFollowFlow(
+    dispatch,
+    userId,
+    usersAPI.follow.bind(usersAPI),
+    followSuccess
+  );
+};
 
-  const data = await usersAPI.unFollow(userId);
-
-  if (data.success) {
-    dispatch(unFollowSuccess(userId));
-    dispatch(toggleFollowing(false, userId));
-  }
+export const unFollow = (userId) => (dispatch) => {
+  followUnFollowFlow(
+    dispatch,
+    userId,
+    usersAPI.unFollow.bind(usersAPI),
+    unFollowSuccess
+  );
 };
 
 export default peopleReducer;
