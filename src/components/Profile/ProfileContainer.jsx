@@ -55,6 +55,7 @@ const ProfileContainer = ({
       updateStatus={updateStatus}
       addPost={addPost}
       reset={reset}
+      isOwner={userIdFromAddress === undefined || userId === +userIdFromAddress}
     />
   );
 };

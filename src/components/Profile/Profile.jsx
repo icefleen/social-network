@@ -18,6 +18,7 @@ const Profile = ({
   updateStatus,
   friends,
   posts,
+  isOwner
 }) => {
   const onSendClicked = (formData) => {
     addPost(formData.postText);
