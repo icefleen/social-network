@@ -28,4 +28,4 @@ const ProfileHeader = (props) => {
   );
 };
 
-export default ProfileHeader;
+export default React.memo(ProfileHeader);

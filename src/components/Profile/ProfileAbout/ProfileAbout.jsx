@@ -30,4 +30,4 @@ const ProfileAbout = (props) => {
   );
 };
 
-export default ProfileAbout;
+export default React.memo(ProfileAbout);

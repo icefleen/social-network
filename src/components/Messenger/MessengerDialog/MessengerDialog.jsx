@@ -20,4 +20,4 @@ const MessengerDialog = (props) => {
   );
 };
 
-export default MessengerDialog;
+export default React.memo(MessengerDialog);

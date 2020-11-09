@@ -28,4 +28,4 @@ const ProfileFriends = (props) => {
   );
 };
 
-export default ProfileFriends;
+export default React.memo(ProfileFriends);

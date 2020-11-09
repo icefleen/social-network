@@ -46,4 +46,4 @@ const Messenger = (props) => {
   );
 };
 
-export default Messenger;
+export default React.memo(Messenger);
